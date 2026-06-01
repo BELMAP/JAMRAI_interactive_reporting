@@ -1,0 +1,15 @@
+﻿" ESCHEOVERVIEW :  Overview of countries reporting antimicrobial resistance data using MIC on indicator Escherichia coli from various animal and food categories, 2017, not mandatory to report according to Decision 2013/652/EU"
+method,Origin,Total number of MSs reporting,Countries
+dilution,Cattle (bovine animals),2,"MSs :BE,NL"
+,Meat from bovine animals,2,"MSs :IT,NL"
+,Meat from broilers (Gallus gallus),2,"MSs :BE,NL"
+,Meat from pig,3,"MSs :DE,IT,NL"
+,Meat from turkey,1,MSs :NL
+,Pigs,1,MSs :DE
+" ESCHEOVERVIEWD : Decision Overview of countries reporting antimicrobial resistance data using MIC on indicator Escherichia coli from various animal and food categories, 2017"
+method,Origin,Total number of MSs reporting,Countries
+dilution,Cattle (bovine animals),10,"MSs :AT,BE,HR,DK,FR,DE,IT,NL,PT,ES"
+,,2,"Non-MSs :NO,CH"
+,Gallus gallus (fowl),3,"MSs :BE,DK,NL"
+,Pigs,28,"MSs :AT,BE,BG,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,SE,GB"
+,,3,"Non-MSs :IS,NO,CH"

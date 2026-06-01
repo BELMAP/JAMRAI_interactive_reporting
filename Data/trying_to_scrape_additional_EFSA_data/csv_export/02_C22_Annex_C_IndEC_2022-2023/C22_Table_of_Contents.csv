@@ -1,0 +1,35 @@
+﻿Page Number,Sheet Name,Table Legend,Link
+1,Table of Contents,,Go to Sheet
+2,T. 1. Pigs E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from fattening pigs, 27 MSs, XI and 5 non-MS  in EU, 2023",Go to Sheet
+3,T. 2. Cattle <1y E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from  cattle under one year of age, 11 MSs and 2 non-MS, 2023",Go to Sheet
+4,T. 3. Broilers E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from broilers, 27 MSs, XI, and 4 non-MSs, 2022",Go to Sheet
+5,T. 4. Turkey E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from fattening turkeys, 13 MSs and 1 non-MS, 2022",Go to Sheet
+6,T. 5. Pig meat BCP E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from imported fresh meat from pigs sampled at Border Control Posts, 5 MSs, XI, and 1 non-MS, 2023",Go to Sheet
+7,T. 6. Bovine meat BCP E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from imported fresh meat from bovines sampled at Border Control Posts, 7 MSs, XI, and 2 non-MS, 2023",Go to Sheet
+8,T. 7. Broiler meat BCP E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from imported fresh meat from broilers sampled at Border Control Posts, 8 MSs, 2022",Go to Sheet
+9,T. 8. Turkey meat BCP E. coli,"Occurrence of resistance (%) to selected antimicrobials, using harmonised ECOFFs, complete susceptibility and multiresistance to all antimicrobials tested and co-resistance to (fluoro)quinolones and third-generation cephalosporins, in Escherichia coli from imported fresh meat from turkeys sampled at Border Control Posts, 3 MSs, 2022",Go to Sheet
+
+
+,Abbreviations,Descriptions
+,MS,Member State
+,non-MS,non Member State
+,N,Number of isolates
+,GEN,Gentamicin
+,AMK,Amikacin
+,CHL,Chloramphenicol
+,AMP,Ampicillin
+,CTX,Cefotaxime
+,CAZ,Ceftazidime
+,MEM,Meropenem
+,TGC,Tigecycline
+,NAL,Nalidixic acid
+,CIP,Ciprofloxacin
+,AZM,Azithromycin
+,COL,Colistin
+,SMX,Sulfonamides
+,TMP,Trimethoprim
+,TET,Tetracycline
+,CS,Complete susceptibility (susceptible to all tested substances)
+,MDR,Multi-drug resistant
+,ECOFF,Epidemiological cut-off value
+,CBP,Clinical breakpoints

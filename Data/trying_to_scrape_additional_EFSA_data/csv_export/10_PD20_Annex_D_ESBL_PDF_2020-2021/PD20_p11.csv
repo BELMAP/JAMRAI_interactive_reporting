@@ -1,0 +1,29 @@
+﻿Source: Annex_D_ESBL_EUSR_AMR_2020-2021.pdf
+Page: 11
+"Table 1. Presumptive ESBL- and AmpC-producing Salmonella spp. isolates from meat from broilers (carcases), broilers, fattening turkeys and laying hens"
+
+-- Table 1 (auto-detected) --
+,,,ESBL and/or,,,,ESBL only,,ESBL only
+,,,,,ESBL(b),,,,,,AmpC(e),,ESBL + AmpC(f),,CPs(g)
+Country,NP1,NP2(a),AmpC,,,,CLA/CTX SYN(c),,CLA/CAZ SYN(d)
+
+,,,n,%(h),n,%(h),n,%(h),n,%(h),n,%(h),n,%(h),n,%(h)
+Meat from broilers (Gallus gallus) - carcase
+France,106,1,1,0.9,0,0,0,0,0,0,1,0.9,0,0,0,0
+Italy(i),14,1,1,7.1,1,7.1,0,0,0,0,0,0,0,0,0,0
+Total (2 MSs),120,2,2,1.7,1,0.8,0,0,0,0,1,0.8,0,0,0,0
+Iceland,10,1,1,10,1,10,0,0,0,0,0,0,0,0,0,0
+Gallus gallus (fowl) - broilers
+Austria,170,2,2,1.2,2,1.2,0,0,0,0,0,0,0,0,0,0
+Hungary,170,3,3,1.8,0,0,0,0,0,0,3,1.8,0,0,0,0
+Italy(i),214,29,29,13.6,29,13.6,4,1.9,0,0,0,0,0,0,0,0
+Malta,52,7,7,13.5,7,13.5,0,0,0,0,0,0,0,0,0,0
+Slovenia,164,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Total (5 MSs),770,42,41,5.3,38,4.9,4,0.5,0,0,3,0.4,0,0,0,0
+Turkeys - fattening flocks
+Italy(i),170,2,2,1.2,2,1.2,0,0,0,0,0,0,0,0,0,0
+Poland,22,1,1,4.5,1,4.5,0,0,0,0,0,0,0,0,0,0
+Total (2 MSs),192,3,3,1.6,3,1.6,0,0,0,0,0,0,0,0,0,0
+Gallus gallus (fowl) - laying hens
+Hungary,30,2,2,6.7,0,0,0,0,0,0,2,6.7,0,0,0,0
+Italy(i),172,2,2,1.2,2,1.2,0,0,0,0,0,0,0,0,0,0

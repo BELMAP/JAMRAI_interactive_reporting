@@ -1,0 +1,76 @@
+﻿" COESCHEBR : Combined resistance to fluoroquinolones and third-generation cephalosporins in indicator Escherichia coli from broilers, 2017"
+,,,Resistant to both,,Resistant to both
+,,,"Cip and Ctx,",,"Cip and Ctx,"
+,,,applying ECOFFs,,applying clinical breakpoints
+Country,N,Multi Resistance patterns of isolates,n,%r,n,%r
+,,resistant to both
+,,Cip and Ctx.
+,,(number of isolates)
+Belgium,160,AMP-CTX-CAZ-CHL-CIP-GEN-NAL-SMX-TET(1),22,13.8,5,3.1
+,,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(5)
+,,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TMP(1)
+,,AMP-CTX-CAZ-CHL-CIP-NAL-TET(1)
+,,AMP-CTX-CAZ-CHL-CIP-SMX-TMP(1)
+,,AMP-CTX-CAZ-CIP-NAL(3)
+,,AMP-CTX-CAZ-CIP-NAL-SMX(2)
+,,AMP-CTX-CAZ-CIP-NAL-SMX-TET(1)
+,,AMP-CTX-CAZ-CIP-NAL-SMX-TET-TMP(3)
+,,AMP-CTX-CAZ-CIP-NAL-SMX-TMP(1)
+,,AMP-CTX-CAZ-CIP-NAL-TET(1)
+,,AMP-CTX-CHL-CIP-GEN-NAL-SMX-TET(1)
+,,AMP-CTX-CIP-NAL-SMX-TET(1)
+Netherlands,301,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET(1),2,0.7,.,.
+,,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1)
+Total(MSs 2)(N 461),,,24,5.2,5,1.1
+" COESCHEPIG : Combined resistance to fluoroquinolones and third-generation cephalosporins in indicator Escherichia coli from fattening pigs, 2017"
+,,,Resistant to both,,Resistant to both
+,,,"Cip and Ctx,",,"Cip and Ctx,"
+,,,applying ECOFFs,,applying clinical breakpoints
+Country,N,Multi Resistance patterns of isolates,n,%r,n,%r
+,,resistant to both
+,,Cip and Ctx.
+,,(number of isolates)
+Belgium,176,AMP-CTX-CAZ-CHL-CIP-SMX-TMP(1),5,2.8,1,0.6
+,,AMP-CTX-CAZ-CIP-NAL-SMX-TET-TMP(2)
+,,AMP-CTX-CAZ-CIP-NAL-SMX-TMP(1)
+,,AMP-CTX-CAZ-CIP-TET(1)
+Czech Republic,180,AMP-CTX-CAZ-CIP-NAL-TMP(1),1,0.6,1,0.6
+Germany,227,AMP-CTX-CAZ-CIP-NAL-SMX-TMP(2),3,1.3,2,0.9
+,,AMP-CTX-CAZ-CIP-TET(1)
+Ireland,203,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET(1),2,1,.,.
+,,AMP-CTX-CAZ-CIP-GEN-NAL-TMP(1)
+Italy,170,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET(1),1,0.6,.,.
+Latvia,149,AMP-CTX-CAZ-CIP-GEN-SMX-TET-TMP(1),1,0.7,.,.
+Poland,213,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1),2,0.9,.,.
+,,AMP-CTX-CAZ-CIP-SMX-TMP(1)
+Portugal,142,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1),3,2.1,1,0.7
+,,AMP-CTX-CAZ-CIP-NAL-SMX-TET-TMP(1)
+,,AMP-CTX-CAZ-CIP-TET(1)
+Romania,170,AMP-CTX-CAZ-CHL-CIP-GEN-NAL-SMX-TET-TMP(1),3,1.8,1,0.6
+,,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1)
+,,AMP-CTX-CAZ-CHL-CIP-SMX-TET(1)
+Slovenia,85,AMP-CTX-CAZ-CIP-NAL(1),1,1.2,1,1.2
+Spain,170,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1),2,1.2,.,.
+,,AMP-CTX-CAZ-CIP-NAL-TET-TMP(1)
+Total(MSs 11)(N 1885),,,24,1.3,7,0.4
+" COESCHECATT : Combined resistance to fluoroquinolones and third-generation cephalosporins in indicator Escherichia coli from bovines under one year of age, 2017"
+,,,Resistant to both,,Resistant to both
+,,,"Cip and Ctx,",,"Cip and Ctx,"
+,,,applying ECOFFs,,applying clinical breakpoints
+Country,N,Multi Resistance patterns of isolates,n,%r,n,%r
+,,resistant to both
+,,Cip and Ctx.
+,,(number of isolates)
+Austria,181,AMP-CTX-CHL-CIP-NAL-SMX-TET-TMP(1),1,0.6,.,.
+Belgium,185,AMP-CTX-CAZ-CHL-CIP-COL-GEN-NAL-SMX-TET-TMP(1),3,1.6,1,0.5
+,,AMP-CTX-CAZ-CHL-CIP-TET-TMP(1)
+,,AMP-CTX-CHL-CIP-NAL-SMX-TET-TMP(1)
+Germany,242,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1),1,0.4,1,0.4
+Italy,170,AMP-CTX-CAZ-CHL-CIP-GEN-NAL-SMX-TET-TMP(3),8,4.7,3,1.8
+,,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1)
+,,AMP-CTX-CAZ-CHL-CIP-SMX-TET-TMP(3)
+,,AMP-CTX-CAZ-CIP-SMX-TET(1)
+Portugal,181,AMP-CTX-CAZ-CIP-NAL-SMX-TET-TMP(1),1,0.6,.,.
+Spain,167,AMP-CTX-CAZ-CHL-CIP-NAL-SMX-TET-TMP(1),2,1.2,1,0.6
+,,AMP-CTX-CAZ-CIP-NAL-SMX-TET(1)
+Total(MSs 6)(N 1126),,,16,1.4,6,0.5

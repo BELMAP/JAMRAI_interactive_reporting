@@ -1,0 +1,80 @@
+﻿"Overview of countries reporting antimicrobial resistance data for indicator E. coli from food-producing animals and food, 2019"
+
+Page by:
+AMR reporting year: 2019
+"AMR Zoonotic agent (L1): Escherichia coli, non-pathogenic"
+Programme Code (LAST): AMR MON
+
+EU/ NonEU,AMR species type,Origin,Origin detailed,Metrics,Count,Countries
+EU,animal,Pigs,Pigs - fattening pigs,,27,"AT, BE, BG, CY, CZ, DK, EE, ES, FI, FR, GB, GR, HR, HU, IE, IT, LT, LU, LV, MT, NL, PL, PT, RO, SE, SI, SK"
+,,,Pigs - fattening pigs - unspecified,,1,DE
+,,Cattle (bovine animals),Cattle (bovine animals) - calves (under 1 year) - veal calves,,1,IT
+,,,Cattle (bovine animals) - calves (under 1 year),,7,"BE, DE, DK, FR, HR, NL, PT"
+,,,Cattle (bovine animals) - calves (under 1 year) - for slaughter,,1,ES
+,,Gallus gallus (fowl),Gallus gallus (fowl) - broilers,,3,"BE, DK, NL"
+non EU,animal,Pigs,Pigs - fattening pigs,,4,"CH, IS, MK, NO"
+,,Cattle (bovine animals),Cattle (bovine animals) - calves (under 1 year) - veal calves,,1,MK
+,,,Cattle (bovine animals) - calves (under 1 year),,2,"CH, NO"
+
+Page by:
+AMR reporting year: 2019
+"AMR Zoonotic agent (L1): Escherichia coli, non-pathogenic"
+Programme Code (LAST): AMR MON pnl2
+
+EU/ NonEU,AMR species type,Origin,Origin detailed,Metrics,Count,Countries
+EU,animal,Pigs,Pigs - fattening pigs,,19,"AT, BE, CZ, EE, ES, FI, FR, GB, GR, HR, HU, IE, IT, LV, MT, PL, PT, RO, SI"
+,,,Pigs - fattening pigs - unspecified,,1,DE
+,,Cattle (bovine animals),Cattle (bovine animals) - calves (under 1 year) - veal calves,,1,IT
+,,,Cattle (bovine animals) - calves (under 1 year),,3,"BE, DE, PT"
+,,,Cattle (bovine animals) - calves (under 1 year) - for slaughter,,1,ES
+,,Gallus gallus (fowl),Gallus gallus (fowl) - broilers,,2,"BE, DK"
+non EU,animal,Cattle (bovine animals),Cattle (bovine animals) - calves (under 1 year) - veal calves,,1,MK
+,,,Cattle (bovine animals) - calves (under 1 year),,2,"CH, NO"
+
+Page by:
+AMR reporting year: 2019
+"AMR Zoonotic agent (L1): Escherichia coli, non-pathogenic"
+Programme Code (LAST): OTHER AMR MON
+
+EU/ NonEU,AMR species type,Origin,Origin detailed,Metrics,Count,Countries
+EU,animal,Pigs,Pigs - fattening pigs,,2,"DE, LU"
+,,Cattle (bovine animals),Cattle (bovine animals),,1,LU
+,,,Cattle (bovine animals) - meat production animals - calves (under 1 year),,1,BE
+,,,Cattle (bovine animals) - dairy cows,,1,NL
+,,Gallus gallus (fowl),Gallus gallus (fowl) - laying hens,,1,BE
+,,,Gallus gallus (fowl),,1,LU
+,,,Gallus gallus (fowl) - broilers,,1,BE
+,,,"Gallus gallus (fowl) - breeding flocks, unspecified",,1,BE
+,food,"Milk, cows'","Milk, cows' - raw milk for manufacture",,1,DE
+,,Meat from pig,Meat from pig - meat preparation - intended to be eaten cooked,,1,LU
+,,,Meat from pig - fresh,,5,"AT, DE, IT, LU, NL"
+,,,Meat from pig - meat products - raw but intended to be eaten cooked,,1,LU
+,,Meat from broilers (Gallus gallus),Meat from broilers (Gallus gallus) - fresh - chilled,,1,NL
+,,Meat from turkey,Meat from turkey - fresh - chilled,,1,NL
+,,Meat from bovine animals,Meat from bovine animals - minced meat - intended to be eaten raw,,1,LU
+,,,Meat from bovine animals - fresh,,4,"AT, DE, IT, NL"
+,,Fish (food),Fish - raw - frozen,,1,NL
+,,Vegetables,Vegetables - pre-cut - ready-to-eat,,1,NL
+,,Crustaceans,Crustaceans - shrimps - raw - frozen,,1,NL
+
+Page by:
+AMR reporting year: 2019
+"AMR Zoonotic agent (L1): Escherichia coli, non-pathogenic"
+Programme Code (LAST): OTHER AMR MON pnl2
+
+EU/ NonEU,AMR species type,Origin,Origin detailed,Metrics,Count,Countries
+EU,animal,Pigs,Pigs - fattening pigs,,1,DE
+,,Cattle (bovine animals),Cattle (bovine animals),,1,LU
+,,,Cattle (bovine animals) - meat production animals - calves (under 1 year),,1,BE
+,,Gallus gallus (fowl),"Gallus gallus (fowl) - breeding flocks, unspecified",,1,BE
+,food,"Milk, cows'","Milk, cows' - raw milk for manufacture",,1,DE
+,,Meat from pig,Meat from pig - meat preparation - intended to be eaten cooked,,1,LU
+,,,Meat from pig - fresh,,4,"AT, DE, IT, LU"
+,,,Meat from pig - meat products - raw but intended to be eaten cooked,,1,LU
+,,Meat from broilers (Gallus gallus),Meat from broilers (Gallus gallus) - fresh - chilled,,1,NL
+,,Meat from turkey,Meat from turkey - fresh - chilled,,1,NL
+,,Meat from bovine animals,Meat from bovine animals - minced meat - intended to be eaten raw,,1,LU
+,,,Meat from bovine animals - fresh,,3,"AT, DE, IT"
+,,Fish (food),Fish - raw - frozen,,1,NL
+,,Vegetables,Vegetables - pre-cut - ready-to-eat,,1,NL
+,,Crustaceans,Crustaceans - shrimps - raw - frozen,,1,NL

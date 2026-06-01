@@ -1,0 +1,55 @@
+﻿,Table,Sheet Name,Table Legend,Link
+,Table 1,Indicator E. coli broilers,"Occurrence of Presumptive ESBL-/AmpC-/CP-producing indicator E. coli isolates from broilers collected through routine monitoring and subjected to supplementary testing (Panel 2), in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 2,Indicator E. coli turkeys,"Occurrence of Presumptive ESBL-/AmpC/CP-producing indicator E. coli isolates from turkeys collected through routine monitoring and subjected to supplementary testing (Panel 2), in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 3,Indicator E. coli pigs,"Occurrence of presumptive ESBL-/AmpC-/CP-producing indicator E. coli isolates from pigs collected through routine monitoring and subjected to supplementary testing (Panel 2), in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 4,Indicator E. coli calves,"Occurrence of presumptive ESBL-/AmpC-/CP-producing indicator E. coli isolates from calves collected through routine monitoring and subjected to supplementary testing (Panel 2), in EU MSs, United Kingdom (Northern Ireland) and non-MSs,  2023  ",Go To Sheet
+,Table 5,Prevalence broilers,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E.coli isolates from broilers collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 6,Prevalence turkeys,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from turkeys collected through specific monitoring, in  EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 7,Prevalence pigs,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from pigs collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 8,Prevalence calves,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from calves collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 9,Prevalence broiler meat,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from broiler meat collected through specific monitoring , in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 10,Prevalence turkey meat,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from turkey meat collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 11,Prevalence pig meat,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from pig meat at retail collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 12,Prevalence bovine meat,"Prevalence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates in bovine meat at retail collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 13,Occurrence broilers,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from broilers collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 14,Occurrence turkeys,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from turkeys collected through specific monitoring, in  EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 15,Occurrence pigs,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from pigs collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 16,Occurrence calves,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from calves collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 17,Occurrence broiler meat,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from broiler meat collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 18,Occurrence turkey meat,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E.coli isolates from turkey meat collected through specific monitoring, in  EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2024 ",Go To Sheet
+,Table 19,Occurrence pig meat,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates from pig meat at retail collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023  ",Go To Sheet
+,Table 20,Occurrence bovine meat,"Occurrence of presumptive ESBL-/AmpC-/CP-producing E. coli isolates in bovine meat at retail collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023 ",Go To Sheet
+,Table 21,Samples investigated CP-producers,"Number of samples investigated and presumptive CP-producing E. coli from targeted food-producing animals and derived meat collected through specific monitoring, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023-2024 ",Go To Sheet
+,Table 22,Occurrence retail meat and imported meat,"Occurrence and prevalence of ESBL-/AmpC-/CP-producing E. coli isolates from meat collected at retail and border control posts, in EU MSs, United Kingdom (Northern Ireland) and non-MSs, 2023-2024",Go To Sheet
+
+
+,Abbreviations,Description
+,AmpC,AmpC beta-lactamase
+,CAZ,Ceftazidime
+,CI,Confidence interval
+,CLA,Clavulanate
+,CP,Carbapenemase
+,CTX,Cefotaxime
+,ESBL,Extended-spectrum betalactamase
+,MSs,Member States
+,n,Number of isolates with the phenotype 
+,nCP,Number of CP positive isolates
+,non-MSs,Non-Member States
+,NP1,Total number of isolates tested with panel 1
+,NP2,Total number of isolates tested with Panel 2 or performing whole genome sequencing
+,NS,"Number of samples collected at slaughterhouse (pigs, calves, broilers, turkeys) or retail (pig meat, bovine meat, broiler meat and turkey meat); "
+,O%,% of isolates from the total number of isolates tested with Panel 2
+,P%,% of isolates from the total number of smaples tested
+,SYN,Synergy
+,%,Percentage of isolates from the total number tested
+
+
+,Note,Description
+,(a),"According to EUCAST guidelines (EUCAST, 2019), only isolates showing MIC >1 mg/L for CTX and/or CAZ were considered (see Appendix B)"
+,(b),"All isolates showing clavulanate synergy with CTX or CAZ or both, suggesting ESBL phenotype, or reported presence of ESBL-encoding gene."
+,(c),"Isolates showing synergy with CTX only, suggesting presence of ESBL with cefotaximase activity."
+,(d),"Isolates showing synergy with CAZ only, suggesting presence of ESBL with ceftazidimase activity."
+,(e),"Isolates with cefoxitin resistance, suggesting AmpC phenotype, or reported presence of AmpC-encoding gene."
+,(f),"Isolates showing synergy with CTX or CAZ and cefoxitin resistance, suggesting ESBL- and AmpC enzymes in the same isolates, or both ESBL- and AmpC-encoding genes reported."
+,(g),Isolates with meropenem resistance or CP-encoding gene reported.
+,(h),"isolates not meeting the EUCAST criteria for categorisation as ESBL-, AmpC- or carbapenemase-producers (FOT and TAZ ≤ 1 mg/L, MERO ≤ 0.125 mg/L)"
