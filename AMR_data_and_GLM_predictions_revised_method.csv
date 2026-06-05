@@ -369,3 +369,51 @@ Year,Year_recent,Pathogen,Antimicrobial,Percent_resistant,Region,Percent_resista
 2022,Y,Escherichia coli,Third-generation cephalosporins,3,Belgium,0.6986940774182899,EFSA,fattening pigs,3.1265111145677245,0.15613998988994185,168,oscilate,0.22236228200420166,,Non
 2023,Y,Escherichia coli,Third-generation cephalosporins,0,Belgium,0.5881561586419013,EFSA,fattening pigs,3.2295033560186854,0.10711481884782902,176,oscilate,0.22236228200420166,,Non
 2024,Y,Escherichia coli,Third-generation cephalosporins,0,Belgium,0.49510605303342153,EFSA,fattening pigs,3.40229936564558,0.07204833478955788,170,oscilate,0.22236228200420166,,Non
+2014,N,Escherichia coli,Aminopenicillins,59,Europe,59.24948650241449,EFSA,broilers,60.9118690029177,57.63247308388524,5046,downward_arrow,1.595643607936369e-24,***,Non
+2016,N,Escherichia coli,Aminopenicillins,58,Europe,56.38674838195244,EFSA,broilers,57.57374965109109,55.22421958545062,4727,downward_arrow,1.595643607936369e-24,***,Non
+2018,N,Escherichia coli,Aminopenicillins,53,Europe,53.66232824583289,EFSA,broilers,54.5841763888369,52.75604879058752,4255,downward_arrow,1.595643607936369e-24,***,Non
+2020,Y,Escherichia coli,Aminopenicillins,50,Europe,51.069543029106434,EFSA,broilers,52.01151528346688,50.144630683943944,3924,downward_arrow,1.595643607936369e-24,***,Non
+2022,Y,Escherichia coli,Aminopenicillins,47,Europe,48.602032570293545,EFSA,broilers,49.771941756188475,47.45962256274986,4341,downward_arrow,1.595643607936369e-24,***,Non
+2024,Y,Escherichia coli,Aminopenicillins,48,Europe,46.25374400976314,EFSA,broilers,47.72866453039989,44.82440177135152,4451,downward_arrow,1.595643607936369e-24,***,Non
+2014,N,Escherichia coli,Fluoroquinolones,66,Europe,66.1986721424336,EFSA,broilers,67.96518908423292,64.47806961870198,5018,downward_arrow,7.890456030321284e-39,***,Non
+2016,N,Escherichia coli,Fluoroquinolones,64,Europe,62.30160470338917,EFSA,broilers,63.54856273622402,61.07911464069715,4727,downward_arrow,7.890456030321284e-39,***,Non
+2018,N,Escherichia coli,Fluoroquinolones,57,Europe,58.63395477579849,EFSA,broilers,59.596738710799734,57.68672459299155,4255,downward_arrow,7.890456030321284e-39,***,Non
+2020,Y,Escherichia coli,Fluoroquinolones,55,Europe,55.182216718462165,EFSA,broilers,56.164267179018665,54.217337729297,3924,downward_arrow,7.890456030321284e-39,***,Non
+2022,Y,Escherichia coli,Fluoroquinolones,51,Europe,51.93367995740582,EFSA,broilers,53.1436612324636,50.75124768164613,4341,downward_arrow,7.890456030321284e-39,***,Non
+2024,Y,Escherichia coli,Fluoroquinolones,50,Europe,48.87638218085382,EFSA,broilers,50.38414334793014,47.413741235852996,4451,downward_arrow,7.890456030321284e-39,***,Non
+2014,N,Escherichia coli,Third-generation cephalosporins,5,Europe,5.031588902096407,EFSA,broilers,5.661903480167984,4.471444447680445,5031,downward_arrow,1.9028174223429582e-6,***,Up
+2016,N,Escherichia coli,Third-generation cephalosporins,4,Europe,3.9077961639741763,EFSA,broilers,4.263597542038251,3.5816867583310668,4727,downward_arrow,1.9028174223429582e-6,***,Up
+2018,N,Escherichia coli,Third-generation cephalosporins,3,Europe,3.034999710093306,EFSA,broilers,3.541057257003504,2.601263569530962,4255,downward_arrow,1.9028174223429582e-6,***,Up
+2020,Y,Escherichia coli,Third-generation cephalosporins,1,Europe,0.8461419915674263,EFSA,broilers,1.1403252369242423,0.6278526921186218,3924,downward_arrow,1.9028174223429582e-6,***,Up
+2022,Y,Escherichia coli,Third-generation cephalosporins,1,Europe,1.2576543769128856,EFSA,broilers,1.481133685046077,1.067894510628818,4341,downward_arrow,1.9028174223429582e-6,***,Up
+2024,Y,Escherichia coli,Third-generation cephalosporins,2,Europe,1.8693015445766337,EFSA,broilers,2.300426436804741,1.5189741382950306,4451,downward_arrow,1.9028174223429582e-6,***,Up
+2015,NA,Escherichia coli,Aminopenicillins,32,Europe,31.340317227186702,EFSA,calves,33.51370636277216,29.30787401633872,1657,downward_arrow,0.042786427270404125,*,Non
+2017,NA,Escherichia coli,Aminopenicillins,29,Europe,30.481639704668538,EFSA,calves,31.96897320458849,29.063503326777717,1893,downward_arrow,0.042786427270404125,*,Non
+2019,NA,Escherichia coli,Aminopenicillins,30,Europe,29.646488653893876,EFSA,calves,30.836287960292935,28.50259702585515,1605,downward_arrow,0.042786427270404125,*,Non
+2021,NA,Escherichia coli,Aminopenicillins,31,Europe,28.83421948494604,EFSA,calves,30.260630590523903,27.475045862606645,1599,downward_arrow,0.042786427270404125,*,Non
+2023,NA,Escherichia coli,Aminopenicillins,27,Europe,28.044205268701905,EFSA,calves,30.016444761845584,26.20155236215025,1964,downward_arrow,0.042786427270404125,*,Non
+2015,NA,Escherichia coli,Fluoroquinolones,12,Europe,12.194967574035969,EFSA,calves,13.59753609374553,10.937072209736167,1657,downward_arrow,0.0037419107005425365,**,Non
+2017,NA,Escherichia coli,Fluoroquinolones,11,Europe,11.412164019733918,EFSA,calves,12.330101909324746,10.562563762333237,1893,downward_arrow,0.0037419107005425365,**,Non
+2019,NA,Escherichia coli,Fluoroquinolones,12,Europe,10.679609176706224,EFSA,calves,11.404089157737047,10.001154023757207,1605,downward_arrow,0.0037419107005425365,**,Non
+2021,NA,Escherichia coli,Fluoroquinolones,10,Europe,9.994077544799175,EFSA,calves,10.854480855568163,9.201875916545706,1599,downward_arrow,0.0037419107005425365,**,Non
+2023,NA,Escherichia coli,Fluoroquinolones,9,Europe,9.352550670984787,EFSA,calves,10.505860295289507,8.325848773427609,1964,downward_arrow,0.0037419107005425365,**,Non
+2015,NA,Escherichia coli,Third-generation cephalosporins,2,Europe,1.7822369775865825,EFSA,calves,2.3663819528389083,1.3422890757201393,1657,oscilate,0.37306421635500353,,Non
+2017,NA,Escherichia coli,Third-generation cephalosporins,2,Europe,1.6909848576339748,EFSA,calves,2.0683555548137176,1.3824653029758822,1893,oscilate,0.37306421635500353,,Non
+2019,NA,Escherichia coli,Third-generation cephalosporins,1,Europe,1.6044049274634014,EFSA,calves,1.9002656478824038,1.3546080644763299,1605,oscilate,0.37306421635500353,,Non
+2021,NA,Escherichia coli,Third-generation cephalosporins,1,Europe,1.5222579667984402,EFSA,calves,1.8800198276769768,1.232577062947589,1599,oscilate,0.37306421635500353,,Non
+2023,NA,Escherichia coli,Third-generation cephalosporins,2,Europe,1.4443170036537927,EFSA,calves,1.9441659873632162,1.0729801985028486,1964,oscilate,0.37306421635500353,,Non
+2015,NA,Escherichia coli,Aminopenicillins,39,Europe,39.3872924160377,EFSA,fattening pigs,40.90864083455422,37.922521311343054,4271,equals,0.34998867060016176,,Non
+2017,NA,Escherichia coli,Aminopenicillins,39,Europe,39.102656360116256,EFSA,fattening pigs,40.16666165600987,38.066836310967446,4211,equals,0.34998867060016176,,Non
+2019,NA,Escherichia coli,Aminopenicillins,41,Europe,38.82007725402205,EFSA,fattening pigs,39.68630805344987,37.9727536252201,4295,equals,0.34998867060016176,,Non
+2021,NA,Escherichia coli,Aminopenicillins,36,Europe,38.53954023300937,EFSA,fattening pigs,39.59872371969636,37.50868770128981,4013,equals,0.34998867060016176,,Non
+2023,NA,Escherichia coli,Aminopenicillins,39,Europe,38.26103053975398,EFSA,fattening pigs,39.753811501887334,36.824304454290804,4368,equals,0.34998867060016176,,Non
+2015,NA,Escherichia coli,Fluoroquinolones,11,Europe,11.188639236216112,EFSA,fattening pigs,12.01351187627922,10.420404062310437,4271,equals,0.5642103059576795,,Non
+2017,NA,Escherichia coli,Fluoroquinolones,11,Europe,11.094991245795885,EFSA,fattening pigs,11.668401523698423,10.549759578831313,4211,equals,0.5642103059576795,,Non
+2019,NA,Escherichia coli,Fluoroquinolones,12,Europe,11.002127081355265,EFSA,fattening pigs,11.467798277617732,10.55536532679895,4295,equals,0.5642103059576795,,Non
+2021,NA,Escherichia coli,Fluoroquinolones,10,Europe,10.910040182335244,EFSA,fattening pigs,11.480506250492358,10.367920558822476,4013,equals,0.5642103059576795,,Non
+2023,NA,Escherichia coli,Fluoroquinolones,11,Europe,10.818724043088173,EFSA,fattening pigs,11.625813587647892,10.067664429511495,4368,equals,0.5642103059576795,,Non
+2015,NA,Escherichia coli,Third-generation cephalosporins,1,Europe,0.9876213339727612,EFSA,fattening pigs,1.2539430358180483,0.7778630060988431,4271,equals,0.9984663889288214,,Non
+2017,NA,Escherichia coli,Third-generation cephalosporins,1,Europe,0.9877136824420182,EFSA,fattening pigs,1.169721550861764,0.8340261131073785,4211,equals,0.9984663889288214,,Non
+2019,NA,Escherichia coli,Third-generation cephalosporins,1,Europe,0.9878060395464054,EFSA,fattening pigs,1.1343660810199152,0.8601815481709775,4295,equals,0.9984663889288214,,Non
+2021,NA,Escherichia coli,Third-generation cephalosporins,1,Europe,0.9878984052867323,EFSA,fattening pigs,1.169940312946258,0.8341820931961508,4013,equals,0.9984663889288214,,Non
+2023,NA,Escherichia coli,Third-generation cephalosporins,1,Europe,0.9879907796638054,EFSA,fattening pigs,1.2544121061521594,0.7781539861687933,4368,equals,0.9984663889288214,,Non

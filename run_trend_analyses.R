@@ -20,7 +20,7 @@ AMR_comparative_interactive <- read_csv("Data/combined_data_for_analysis.csv") %
 combined_categories <- unique(AMR_comparative_interactive$category)
 
 # TESTING: uncomment to restrict the loop to a category subset
-# combined_categories2 <- combined_categories[44:123]
+# combined_categories2 <- combined_categories[22:30]
 
 # Diagnostic preview: prints range-to-mean ratio per category before running models.
 # The same ratio is recalculated inline during icon assignment in the model loop.

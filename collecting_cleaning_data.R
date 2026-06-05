@@ -4,6 +4,7 @@
 
 #1. load libraries ---------------
 library(tidyverse)
+library(here)
 
 #2. load data ------------------
 
@@ -90,8 +91,10 @@ load_amr_2025 <- function(path) {
   
   # Extract animal label from filename (e.g. "broilers", "calves", "fattening pigs")
   animal <- basename(path) %>%
-    str_extract("(?<=_BE_).+(?=\\.csv$)") %>%
+    str_extract("(?<=_.._).+(?=\\.csv$)") %>%
     str_replace_all("_", " ")
+  region <- basename(path) %>%
+    str_extract("(AMR - 2025 Interactive dashboard_).+(?=\\.csv$)")
   
   # Build one-row column names by forward-filling years across paired columns
   years <- tibble(yr = unlist(raw[1, ])) %>%
@@ -118,15 +121,16 @@ load_amr_2025 <- function(path) {
     ) %>%
     mutate(
       Host = animal,
+      Region = if_else(grepl("EU",region),"Europe","Belgium"),
       Year   = as.integer(year),
-      value  = as.numeric(str_remove(value, "%"))
+      value  = as.numeric(str_remove(value, "%|,"))
     ) %>%
     pivot_wider(names_from = metric, values_from = value) %>%
     rename(
       Percent_resistant = `Occurrence of resistance`,
       Sample_size     = `Number of isolates tested`
     ) %>%
-    select(Host, Antimicrobial, Year, Percent_resistant, Sample_size)
+    select(Host, Antimicrobial, Year, Percent_resistant, Sample_size,Region)
 }
 
 # ── Load all three BE dashboard files and combine ────────────────────────────
@@ -139,8 +143,8 @@ load_all_amr_2025 <- function(data_dir = here::here("Data")) {
 # Usage:
  EFSA_amr_2025 <- load_all_amr_2025() %>%
    mutate(Surveillance = "EFSA",  # add identifiers to combine with human dataset
-          Pathogen = "Escherichia coli",
-          Region = "Belgium") %>% # add identifiers to combine with human dataset
+          Pathogen = "Escherichia coli" ) %>% #,
+      #    Region = "Belgium") %>% # add identifiers to combine with human dataset
    #select antibiotics relevant to comparison and rename as per ECDC
    mutate(Antimicrobial = case_when(
      grepl("AMP",Antimicrobial) ~ "Aminopenicillins",
@@ -159,5 +163,6 @@ load_all_amr_2025 <- function(data_dir = here::here("Data")) {
 
  write_csv(AMR_comparative_interactive, "Data/combined_data_for_analysis.csv")
  
+
  
  

@@ -1,0 +1,260 @@
+@font-face {  
+
+font-family: 'ITC Avant Garde Gothic';
+src: url('ITC_Avant_Garde_Gothic_Medium.ttf') format('truetype'),
+	url('ITC_Avant_Garde_Gothic_Medium.woff') format('woff'),
+     url('ITC_Avant_Garde_Gothic_Medium.otf') format('onetype');
+}
+
+
+/* Whole document: */
+body{
+  font-family: "ITC Avant Garde Gothic"!important;
+  font-size: 16pt;
+  background-color: white;
+  color: #078BAD;
+  border-color: #078BAD;
+}
+
+.content-wrapper {
+	color: #078BAD;
+	border-color: #078BAD;
+	background-color: white;
+	padding:0px;}
+
+/* Title */
+title{
+  font-family: "ITC Avant Garde Gothic"!important;
+  font-size: 18pt;
+  color: #078BAD;
+  background-color: white;
+}
+/* Headers */
+h1{
+  font-family: "ITC Avant Garde Gothic"!important;
+  font-size: 20pt;
+  background-color: #078BAD;
+  color: white;
+}
+h2{
+  font-family: "ITC Avant Garde Gothic"!important;
+  font-size : 18pt;
+  background-color: white;
+  color: #078BAD;
+}
+
+h3{
+  font-family: "ITC Avant Garde Gothic"!important;
+  font-size : 18pt;
+  color: #078BAD;
+  background-color: white;
+}
+h4,h5,h6{
+  font-family: "ITC Avant Garde Gothic"!important;
+  font-size: 16pt;
+  background-color: white;
+  color: #078BAD;
+}
+/*hyperlinks*/
+a { color: #2c7fb8;
+  font-family: "ITC Avant Garde Gothic"!important;
+  font-size: 12pt; }
+
+/* nav tabs boxes */
+.nav-tabs {
+  color: white!important;
+  background-color: #078BAD!important;
+}
+
+.nav-tabs-custom {
+  color: white!important;
+  background-color: #078BAD!important;
+}
+li a {
+  color: #078BAD!important;
+  background-color: white;
+      }
+
+.container-fluid {
+                             background-color: white;
+              }
+.tab-pane{ color: #078BAD; 
+			font-size: 11pt;
+			background-color: white;
+			border-color: #078BAD;
+			}
+.tab-panel{ color: #078BAD; 
+			font-size: 11pt;
+			background-color: white;
+			border-color: #078BAD;
+			}
+
+
+.tab-pane[data-value='Human']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+
+.tab-pane[data-value='Community']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-pane[data-value='Hospital']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-pane[data-value='Use']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-pane[data-value='Sales']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-pane[data-value='Total']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-pane[data-value='Antimicrobial group']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-pane[data-value='Salmonella']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-pane[data-value='Campylobacter']{background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;
+			}
+.tab-box {
+			color: #078BAD;
+			font-size: 11pt;			
+			background-color: white;}
+
+.tab-item {
+			color: #078BAD;
+			font-size: 11pt;			
+			background-color: white;}
+
+.tab-pane.active {
+			background-color: white;
+			font-size: 11pt;
+				color: #078BAD;}
+
+.tab-pane.active[data-value='Hospital']{
+			background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;}
+.tab-pane.active[data-value='Community']{
+			background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;}
+
+.tab-pane.active[data-value='Use']{
+			background-color: white;
+			font-size: 11pt;
+			color: #078BAD;}
+.tab-pane.active[data-value='Sales']{
+			background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;}
+.tab-pane.active[data-value='Total']{
+			background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;}
+.tab-pane.active[data-value='Antimicrobial group']{
+			background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;}
+.tab-pane.active[data-value='Salmonella']{
+			background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;}
+.tab-pane.active[data-value='Campylobacter']{
+			background-color: white; 
+			font-size: 11pt;
+			color: #078BAD;}
+
+.nav-tabs .active a{
+  color: #078BAD!important;
+  background-color: white!important;
+}
+
+.nav-tabs a{
+  color: white!important;
+  background-color: #078BAD!important;
+  border-color: white;
+}
+
+/* header title font */
+.main-header .logo {
+  font-family: ITC Avant Garde Gothic!important;
+  font-weight: normal;
+  font-size: 24pt;
+}
+
+
+/* background color of header (logo part) */
+.skin-blue .main-header .logo {
+    background-color: #0FDBD5;
+	color:white;
+       }
+
+.body {
+     color: white!important;
+	 background-color: #0FDBD5!important;
+
+        }
+        
+        
+/* change the background color of header (logo part) when mouse hover */
+.skin-blue .main-header .logo:hover {
+          background-color: #078BAD;
+	  border-color: #078BAD;
+	  color:white!important;
+        }
+        
+
+/* background color for remaining part of the header */
+.skin-blue .main-header .navbar {color: white!important;
+                              background-color: #078BAD;
+                              } 
+                              
+/* main sidebar */
+.skin-blue .main-sidebar {
+                             background-color: #078BAD;
+			     border-color: #078BAD;
+                             color: white!important;
+			     font-size: 14pt;
+    height: 100vh;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    width: 250px;
+                              }
+
+/* active sidebar menu item */
+.skin-blue .main-sidebar .sidebar .sidebar-menu .active a{
+                             background-color: white!important;
+                             color: #078BAD!important;
+  			     font-family: "ITC Avant Garde Gothic"!important;
+			     font-size: 14pt;
+                              }
+
+/* sidebar menuitems */
+        .skin-blue .main-sidebar .sidebar .sidebar-menu a{
+                             background-color: #078BAD;
+                             color: white!important;
+  			     font-family: "ITC Avant Garde Gothic"!important;
+			     font-size: 14pt;
+                              }
+
+/* sidebar menuitems when mouse hover */
+.skin-blue .main-sidebar .sidebar .sidebar-menu a:hover {
+    background-color: white!important;
+    color: #078BAD!important;
+}
+
