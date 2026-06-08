@@ -61,11 +61,15 @@ showtext_auto()
 font_add('fa-solid', './font_awesome_font_files/fontawesome-free-6.4.0-desktop/otfs/Font Awesome 6 Free-Solid-900.otf')
 font_add('ITC Avant Garde Gothic', './font_awesome_font_files/fontawesome-free-6.4.0-desktop/otfs/ITC_Avant_Garde_Gothic_Medium.otf')
 
+upward_arrow <- "<span style='font-family:fa-solid;font-size:8pt'>&#xf062;</span>"
+downward_arrow <- "<span style='font-family:fa-solid;font-size:8pt'>&#xf063;</span>" 
+equals <- "<span style='font-family:fa-solid;font-size:8pt'>&#xf52c;</span>"   #" = " 
+oscillate <- "<span style='font-family:fa-solid;font-size:8pt'>&#xf83e;</span>"   #" ~ "
+arrow_right <-  "<span style='font-family:fa-solid;font-size:8pt'>&#xf061;</span>"
+arrow_trend_up <- "<span style='font-family:fa-solid;font-size:8pt'>&#xe098;</span>"
+arrow_trend_down <- "<span style='font-family:fa-solid;font-size:8pt'>&#xe097;</span>"
 
-upward_arrow <- "<span style='font-family:fa-solid'>&#xf062;</span>"
-downward_arrow <- "<span style='font-family:fa-solid'>&#xf063;</span>" 
-equals <- "<span style='font-family:fa-solid'>&#xf52c;</span>"   #" = " 
-oscillate <- "<span style='font-family:fa-solid'>&#xf83e;</span>"   #" ~ "
+
 
 
 # 1B graph themes -----------------------------
@@ -94,18 +98,54 @@ moiras_graph_theme<- function(..., base_size = 12){theme(
 
 # 2. Load data ------------------------------------------------------------
 
-comparative_AMR_data <- read_csv("Data/combined_data_for_analysis.csv")
+comparative_AMR_data_raw <- read_csv("AMR_data_and_GLM_predictions_revised_method.csv") %>%
+  mutate(Host = if_else(grepl("human",Host), "Human:Blood or CSF", str_to_sentence(Host))) %>%
+  filter(!is.na(Host)) %>%
+  mutate(label_icon = case_when(
+    icon == "upward_arrow" ~ upward_arrow,
+    icon == "downward_arrow" ~ downward_arrow,
+    icon == "equals" ~ equals,
+    icon == "oscilate" ~ oscillate,
+    is.na(icon) ~ "",
+    .default = ""),
+    label_icon2 = case_when( 
+      recent_years == "Up"  ~ arrow_trend_up,
+      recent_years == "Down" ~ arrow_trend_down,
+      recent_years == "" ~ "",
+      is.na(recent_years) ~ "",
+      .default = ""
+    )) %>%
+  mutate(adjusted_signif1 = if_else(is.na(signif_level_raw),"",signif_level_raw)) %>%
+  mutate(label = paste(label_icon,adjusted_signif1,"",label_icon2, sep="")) %>%
+  mutate(Year=as.numeric(Year)) %>%
+  mutate( CI_upper = if_else( CI_upper>100,100, CI_upper))
 
-host_species_resistance <- unique(comparative_AMR_data$Host)
 
-bact_species_resistance <- unique(comparative_AMR_data$Pathogen)
+host_species_resistance <- unique(comparative_AMR_data_raw$Host)
+
+bact_species_resistance <- "Escherichia coli" #unique(comparative_AMR_data$Pathogen)
 
 
 contributor_list<- read.csv("Data/contributor_report_details.csv",
                             sep = ";", header = T)
 
-resistance_data_types <- unique(contributor_list$Antimicrobial)
+#resistance_data_types <- unique(contributor_list$Antimicrobial)
 
+
+# add coordinates for trends label
+
+y_coords <- comparative_AMR_data_raw %>%
+  filter(Year == 2024) %>%
+  group_by(Host,Pathogen, Antimicrobial)%>%
+  mutate(rank = rank(Percent_resistant_predict))%>%
+  ungroup() %>%
+  mutate(y_coord = case_when(
+    rank == 1 ~ (round(Percent_resistant_predict)+10),
+    rank == 2 ~ (round(Percent_resistant_predict) - 10)
+  )) %>%
+  dplyr::select(Host,Pathogen,Antimicrobial,Region, y_coord)
+
+comparative_AMR_data <- left_join(comparative_AMR_data_raw,y_coords, by = c("Host","Pathogen","Antimicrobial", "Region"))
 
 # 3. Load Text ------------------------------------------------------------
 
@@ -193,6 +233,10 @@ For commensal <i>E. coli</i> monitoring in Belgium, the Federal Agency for the S
 <br/><br/>
 The surveillance of MRSA follows a 3-year cycle and includes farm samples (pooled nasal swabs) from the poultry, cattle, or pig sector, depending on the year. AMR testing of MRSA strains is detailed in the reports available on the FASFC website. The method used to isolate MRSA strains from pooled nasal swabs changed in 2022 to the so-called 1-S isolation method according to the <a href='https://www.eurl-ar.eu/CustomerData/Files/Folders/21-protocols/430_mrsa-protocol-final-19-06-2018.pdf'>[EURL-AR protocol version from 2018]</a>, in which the second enrichment step with cefoxitin and aztreonam applied for the previous monitoring years (the so-called 2-S isolation method)  is excluded.   The confirmed MRSA isolates are spa-typed by retrieving, from the whole-genome sequencing (WGS), the repetitive region of the <i>spa</i> gene encoding for the staphylococcal protein A, and categorized as livestock associated (LA) MRSA if they are associated to the <i>S. aureus</i> clonal complex CC398 through WGS.
 <br/><br/>"
+
+AMR_text_outline <- "Here you can add Text describing the findings - this can reactive to what is selected"
+
+AMR_fig_text_outline <- "Here you can add Text describing the figure - this can reactive to what is selected"
 
 
 # 4. Define UI ------------------------------------------------------------
@@ -319,39 +363,45 @@ body <- dashboardBody(
               fluidRow(
                 column(4,
                        radioButtons("antibiotic", label = h3("Select Antibiotic"),
-                                    choices = list("Ciprofloxacin" = "Ciprofloxacin",
-                                                   "Colistin" =   "Colistin"),
-                                    selected = c("Ciprofloxacin"))),
+                                    choices = list("Aminopenicillins" = "Aminopenicillins",
+                                                   "Fluoroquinolones" = "Fluoroquinolones",
+                                                   "Third-generation cephalosporins" =   "Third-generation cephalosporins"
+                                                   ),
+                                    selected = c("Aminopenicillins"))),
                 column(4,
                        awesomeCheckboxGroup("host", label = h3("Select Species"),
                                             choices = host_species_resistance,
                                             selected = c("Human:Blood or CSF"))),
                 column(4,
                        awesomeCheckboxGroup("bact", label = h3("Select Pathogen"),
-                                            choices = bact_species_resistance,
-                                            selected = c("E. coli")))),
+                                            choices = c( "E. coli" = "Escherichia coli"),
+                                            selected = c("Escherichia coli"))),
+              column(4,
+                     awesomeCheckboxGroup("region", label = h3("Select Region"),
+                                          choices = c("Belgium","Europe"),
+                                          selected = c("Belgium","Europe")))),
               
               fluidRow(plotOutput("amr_fig",height = "800px"),
                        fluidRow(
-                         #                       column(6,
+                         column(2,
                          materialSwitch(
                            inputId = "amr_ss1",
                            label = "Show Belgian sample sizes",
                            status = "primary",
                            right = TRUE
-                         ) #)
-                         # column(6,
-                         #        materialSwitch(
-                         #          inputId = "Zoom_switch_amr1",
-                         #          label = "Zoom in scale",
-                         #          status = "primary",
-                         #          right = TRUE
-                         #        ))#,
-                         # column(6,
-                         #        sliderInput("year_amr1", label = "Select Years", min = 2011,
-                         #                    max = 2023, value = c(2011, 2023),sep = ""))#,
-                         #     #     htmlOutput("AMR_fig_text")),
-                         #     fluidRow(htmlOutput("AMR_text"))
+                         ) ),
+                         column(2,
+                                materialSwitch(
+                                  inputId = "Zoom_switch_amr1",
+                                  label = "Zoom in scale",
+                                  status = "primary",
+                                  right = TRUE
+                                )),
+                         column(2,
+                                sliderInput("year_amr1", label = "Select Years", min = 2000,
+                                            max = 2024, value = c(2000, 2024),sep = "")),
+                                  htmlOutput("AMR_fig_text")),
+                             fluidRow(htmlOutput("AMR_text")
                        )))),
     
     
@@ -366,26 +416,27 @@ body <- dashboardBody(
                 column(4,
                        selectInput("chose_analysis_type", label = h4("Select analysis"), 
                                    choices = c("Human- E. coli",
-                                               "Human- Salmonella spp.",
-                                               "Human- Neisseria gonorrhoeae",
-                                               "Human- Shigella spp.",
-                                               "Human- Campylobacter",
-                                               "Zoonotic pathogens in the foodchain",
-                                               "In healthy food producing animals",
-                                               "Veterinary Pathogen-E. coli in beef cattle",
-                                               "Veterinary Pathogen-E. coli in chickens",
-                                               "Veterinary Pathogen-E. coli in swine",
-                                               "Veterinary Pathogen-E. coli in bovine mastitis"), 
+                                               # "Human- Salmonella spp.",
+                                               # "Human- Neisseria gonorrhoeae",
+                                               # "Human- Shigella spp.",
+                                               # "Human- Campylobacter",
+                                               # "Zoonotic pathogens in the foodchain",
+                                               "Healthy food producing animals - E. coli"), #,
+                                               # "Veterinary Pathogen-E. coli in beef cattle",
+                                               # "Veterinary Pathogen-E. coli in chickens",
+                                               # "Veterinary Pathogen-E. coli in swine",
+                                               # "Veterinary Pathogen-E. coli in bovine mastitis"), 
                                    selected = "Human- E. coli"),
                        imageOutput("Contributor_logo"), height = "200px"),
                 column(8,
                        htmlOutput("contributor_report_link")
-                )),
-              fluidRow(
-                column(12,
-                       h3("Contributors to the BELMAP report:"),
-                       uiOutput("Contributors_table") 
-                ))))
+                )) #,
+              # fluidRow(
+              #   column(12,
+              #          h3("Contributors to the BELMAP report:"),
+              #          uiOutput("Contributors_table") 
+              #   ))
+              ))
   )       
 )
 
@@ -398,10 +449,10 @@ ui <- dashboardPage(
   
   #5a. UI Header -------------------------------------------------------------
   # skin = "green", 
-  dashboardHeader(title = loadingLogo('https://www.health.belgium.be/en/belmap-2024-report',
+  dashboardHeader(title = loadingLogo('https://eu-jamrai.eu/',
                                       
-                                      'BELMAP-logo1.png',
-                                      'BELMAP-loading.png')),
+                                      'Eujamrai_Rectangular_Transparent_Color.png',
+                                      'Eujamrai_Rectangular_Transparent_Color.png')),
   sidebar,
   body
 )
@@ -418,14 +469,15 @@ server <- function(input, output, session) {
   global <- reactiveValues(
     
     # human AMR reactive values
-    amr_select_bact = "E. coli",
-    amr_select_antib = "Ciprofloxacin",
+    amr_select_bact = "Escherichia coli",
+    amr_select_antib = "Aminopenicillins",
     amr_select_host = "Human:Blood or CSF",
+    amr_select_region = c("Belgium","Europe"),
     # AMR_text = paste(h_ec_text),
     # AMR_fig_text = h_ec_fig_leg,
-    amr_fig_data = workshop_data %>%
-      filter(grepl("E. coli", Pathogen),
-             grepl("Colistin", Indicator)) %>%
+    amr_fig_data = comparative_AMR_data %>%
+      filter(grepl("Escherichia coli", Pathogen),
+             grepl("Aminopenicillins", Antimicrobial)) %>%
       mutate(Sample_size = "") ,
     amr_sample_size = "FALSE",
     
@@ -451,16 +503,39 @@ server <- function(input, output, session) {
   } ,{
     global$amr_select_bact <-  input$bact
     if(global$amr_sample_size == TRUE){
-      global$amr_fig_data = workshop_data %>%
-        mutate(Sample_size = as.character(Sample_size.x)) %>%
-        filter(grepl(paste( global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+      global$amr_fig_data = comparative_AMR_data %>%
+        mutate(Sample_size = if_else(grepl("Belgium",Region),as.character(Sample_size.x), "")) %>%
+        filter(grepl(paste( global$amr_select_bact, collapse = "|"), Pathogen),               
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     } else {
-      global$amr_fig_data = workshop_data %>%
+      global$amr_fig_data = comparative_AMR_data %>%
         mutate(Sample_size = "") %>%
         filter(grepl(paste( global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
+               grepl(paste(global$amr_select_host, collapse = "|"), Host))
+    }
+  })
+  
+  observeEvent(eventExpr = {
+    input$region
+  } ,{
+    global$amr_select_region <-  input$region
+    if(global$amr_sample_size == TRUE){
+      global$amr_fig_data = comparative_AMR_data %>%
+        mutate(Sample_size = if_else(grepl("Belgium",Region),as.character(Sample_size.x), "")) %>%
+        filter(grepl(paste( global$amr_select_bact, collapse = "|"), Pathogen),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
+               grepl(paste(global$amr_select_host, collapse = "|"), Host))
+    } else {
+      global$amr_fig_data = comparative_AMR_data %>%
+        mutate(Sample_size = "") %>%
+        filter(grepl(paste( global$amr_select_bact, collapse = "|"), Pathogen),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     }
   })
@@ -472,16 +547,18 @@ server <- function(input, output, session) {
   } ,{
     global$amr_select_antib <-  input$antibiotic
     if(global$amr_sample_size == TRUE){
-      global$amr_fig_data = workshop_data %>%
-        mutate(Sample_size = as.character(Sample_size.x)) %>%
+      global$amr_fig_data = comparative_AMR_data %>%
+        mutate(Sample_size = if_else(grepl("Belgium",Region),as.character(Sample_size.x), "")) %>%
         filter(grepl(paste( global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     } else {
-      global$amr_fig_data = workshop_data %>%
+      global$amr_fig_data = comparative_AMR_data %>%
         mutate(Sample_size = "") %>%
         filter(grepl(paste(global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     }
   })
@@ -494,16 +571,18 @@ server <- function(input, output, session) {
   } ,{
     global$amr_select_host <-  input$host
     if(global$amr_sample_size == TRUE){
-      global$amr_fig_data = workshop_data %>%
-        mutate(Sample_size = as.character(Sample_size.x)) %>%
+      global$amr_fig_data = comparative_AMR_data %>%
+        mutate(Sample_size = if_else(grepl("Belgium",Region),as.character(Sample_size.x), "")) %>%
         filter(grepl(paste( global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     } else {
-      global$amr_fig_data = workshop_data %>%
+      global$amr_fig_data = comparative_AMR_data %>%
         mutate(Sample_size = "") %>%
         filter(grepl(paste(global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     }
   })
@@ -515,16 +594,18 @@ server <- function(input, output, session) {
   } ,{
     global$amr_sample_size <-  input$amr_ss1
     if(global$amr_sample_size  == TRUE){
-      global$amr_fig_data = workshop_data %>%
-        mutate(Sample_size = as.character(Sample_size.x)) %>%
+      global$amr_fig_data = comparative_AMR_data %>%
+        mutate(Sample_size = if_else(grepl("Belgium",Region),as.character(Sample_size.x), "")) %>%
         filter(grepl(paste(global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     } else {
-      global$amr_fig_data = workshop_data %>%
+      global$amr_fig_data = comparative_AMR_data %>%
         mutate(Sample_size = "") %>%
         filter(grepl(paste(global$amr_select_bact, collapse = "|"), Pathogen),
-               grepl(global$amr_select_antib, Indicator),
+               grepl(paste( global$amr_select_region, collapse = "|"), Region),
+               grepl(global$amr_select_antib, Antimicrobial),
                grepl(paste(global$amr_select_host, collapse = "|"), Host))
     }
   })
@@ -543,20 +624,20 @@ server <- function(input, output, session) {
     
     
   })
+  # 
+  # Bactchoices <- reactive({case_when(
+  #   input$antibiotic=="Ciprofloxacin" ~ c( "Escherichia coli","Neisseria gonorrhoeae","invasive Salmonellosis",                                 
+  #                                          "Shigella spp." ,"Campylobacter jejuni", "Salmonella Typhimurium",                     
+  #                                          "Salmonella Derby","Salmonella Enteritidis","Salmonella Infantis",                        
+  #                                          "Salmonella Paratyphi B Var, L(+) Tartrate+","Campylobacter coli","hemolytic Escherichia coli"),
+  #   input$antibiotic=="Colistin" ~ c("Escherichia coli",rep("",11))
+  # )}) 
   
-  Bactchoices <- reactive({case_when(
-    input$antibiotic=="Ciprofloxacin" ~ c( "Escherichia coli","Neisseria gonorrhoeae","invasive Salmonellosis",                                 
-                                           "Shigella spp." ,"Campylobacter jejuni", "Salmonella Typhimurium",                     
-                                           "Salmonella Derby","Salmonella Enteritidis","Salmonella Infantis",                        
-                                           "Salmonella Paratyphi B Var, L(+) Tartrate+","Campylobacter coli","hemolytic Escherichia coli"),
-    input$antibiotic=="Colistin" ~ c("Escherichia coli",rep("",11))
-  )}) 
-  
-  observeEvent({input$antibiotic},{
-    updateAwesomeCheckboxGroup(session, "bact",  
-                               label = "Select Pathogen", choices = Bactchoices(), 
-                               selected = "Escherichia coli")
-  })
+  # observeEvent({input$antibiotic},{
+  #   updateAwesomeCheckboxGroup(session, "bact",  
+  #                              label = "Select Pathogen", choices = Bactchoices(), 
+  #                              selected = "Escherichia coli")
+  # })
   
   #7. make reactive figures ----------------------------------------------------------
   
@@ -574,9 +655,9 @@ server <- function(input, output, session) {
     
     ggplot(explaining_graphs)+
       geom_richtext(aes(x = x, y = y, label = Label),
-                    fill = "#2ea498", stat = "unique",
+                    fill = "#078BAD", stat = "unique",
                     colour= "white", show.legend = FALSE)+
-      geom_text(aes(x = x1, y = y, label = Label1), colour = "#2ea498", size = 4,
+      geom_text(aes(x = x1, y = y, label = Label1), colour = "#078BAD", size = 4,
                 family = "ITC Avant Garde Gothic",hjust = 0)+
       theme(text = element_blank(),
             axis.ticks = element_blank(),
@@ -675,23 +756,27 @@ server <- function(input, output, session) {
   
   output$amr_fig <- renderPlot({
     
-    year_min <- min(global$amr_fig_data$Year)
-    year_max <- max(global$amr_fig_data$Year)
+    year_min <- min(input$year_amr1)
+    year_max <- max(input$year_amr1)
+    
+    ymax <- if_else(input$Zoom_switch_amr1 == TRUE, ceiling(max(global$amr_fig_data$Percent_resistant, na.rm = TRUE)/10)*10,100)
+    
+    
     amr_fig_plot <-   global$amr_fig_data %>%
-      mutate(y_coord = 20) %>%
+     # mutate(y_coord = 20) %>%
       ggplot(aes(label = label_icon))+
-      geom_bar(aes(x=Year, y = as.numeric(Percent_resistance)), stat="identity", position = "dodge", fill = "#2ea498")+
-      geom_ribbon(aes(x=Year, ymin = CI_lower, ymax = CI_upper, y = Percent_resistance_predict), alpha = 0.25)+
-      geom_smooth(aes(x=Year, y = Percent_resistance_predict),stat = "identity")+
-      # scale_fill_manual(values = Lets_Talk_colours )+
-      # scale_colour_manual(values = Lets_Talk_colours)+
-      facet_grid(Host ~ Pathogen, labeller = label_wrap_gen(width = 10, multi_line = T))+
+      geom_bar(aes(x=Year, y = as.numeric(Percent_resistant), fill = Region), stat="identity", position = "dodge")+
+      geom_ribbon(aes(x=Year, ymin = CI_lower, ymax = CI_upper, y = Percent_resistant_predict, group = Region), alpha = 0.25)+
+      geom_smooth(aes(x=Year, y = Percent_resistant_predict, colour = Region),stat = "identity")+
+      scale_fill_manual(values = c("#078BAD", "#0FDBD5") )+
+      scale_colour_manual(values = c("#078BAD", "#0FDBD5") )+
+      facet_wrap( ~ Host, labeller = label_wrap_gen(width = 10, multi_line = T))+
       # geom_richtext( size = 16, hjust = 0, label.colour = NA) +
-      ylim(0,100)+
+      scale_y_continuous(limits = c(-1,ymax), breaks = seq(0,ymax, length.out = 3))+
       scale_x_continuous(limits = c(year_min-1,year_max+2), breaks = seq(year_min,year_max,1))+
-      geom_text(aes(x = Year, y = 90, label = Sample_size), colour = "black", size = 2, angle = 90, hjust = 1)+  #make this additional for interactive report
-      geom_richtext(aes(x = year_max+1, y = 20,
-                        fill = "#2ea498",
+      geom_text(aes(x = Year, y = (ymax/100*90), label = Sample_size), colour = "black", size = 2, angle = 90, hjust = 1)+  #make this additional for interactive report
+      geom_richtext(aes(x = year_max+1, y = y_coord,
+                        fill = Region,
                         label = label), stat = "unique",
                     colour= "white", show.legend = FALSE)+
       # fill = NA, label.color = NA, # remove background and outline
@@ -844,6 +929,13 @@ server <- function(input, output, session) {
     Vetpath_method
   })
   
+  output$AMR_text <- renderText({
+    AMR_text_outline
+  })
+  
+  output$AMR_fig_text<- renderText({
+    AMR_fig_text_outline
+  })
   
   # contributors text outputs ------------------------------------
   output$contributor_report_link <-renderText(

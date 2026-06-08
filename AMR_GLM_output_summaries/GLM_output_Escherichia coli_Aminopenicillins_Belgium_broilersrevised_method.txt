@@ -1,7 +1,7 @@
 
 Call:
 glm.nb(formula = Number_resistants ~ Year_simple * Year_recent + 
-    offset(log(Sample_size)), data = dataset_analysis, init.theta = 5208193.74, 
+    offset(log(Sample_size)), data = dataset_analysis, init.theta = 5207985.353, 
     link = log)
 
 Coefficients:
@@ -13,7 +13,7 @@ Year_simple:Year_recentY -0.021849   0.029914  -0.730    0.465
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-(Dispersion parameter for Negative Binomial(5208773) family taken to be 1)
+(Dispersion parameter for Negative Binomial(5207487) family taken to be 1)
 
     Null deviance: 14.9002  on 12  degrees of freedom
 Residual deviance:  6.7836  on  9  degrees of freedom
@@ -22,8 +22,8 @@ AIC: 105.65
 Number of Fisher Scoring iterations: 1
 
 
-              Theta:  5208194 
-          Std. Err.:  184241806 
+              Theta:  5207985 
+          Std. Err.:  184234522 
 Warning while fitting theta: alternation limit reached 
 
  2 x log-likelihood:  -95.648 

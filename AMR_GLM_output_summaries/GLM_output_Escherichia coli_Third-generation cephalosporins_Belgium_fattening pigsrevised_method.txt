@@ -156,5 +156,5 @@ Number of Fisher Scoring iterations: 1
 
    Observed zeros: 5
   Predicted zeros: 5
-            Ratio: 0.97
+            Ratio: 0.99
 

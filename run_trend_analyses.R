@@ -150,35 +150,42 @@ for(i in combined_categories){
       
     } else {  # dataset spans >9 years: test for a post-2019 slope change
       
-      glmpoissonirr1 <- glm(Number_resistants~Year_simple + offset(log(Sample_size)), data = dataset_analysis, family = poisson(link = "log"))
-      glmpoissonirr2 <- glm(Number_resistants~Year_simple*Year_recent + offset(log(Sample_size)), data = dataset_analysis, family = poisson(link = "log"))
+      
+      glmpoissonirr0 <- glm(Number_resistants~Year_simple + offset(log(Sample_size)), data = dataset_analysis, family = poisson(link = "log"))
+      
+      
+      ##  Fit negative binomial ----
+      
+      nb0 <- glm.nb(Number_resistants~Year_simple + offset(log(Sample_size )), data = dataset_analysis )
+      
+      
+       glmpoissonirr1 <- glm(Number_resistants~Year_simple*Year_recent + offset(log(Sample_size)), data = dataset_analysis, family = poisson(link = "log"))
       
       capture.output(print("Check if last 5 years significant in poisson"),file = output_file_name)
       capture.output(print(summary(glmpoissonirr1)),file = output_file_name)
-      pois_vs_pois1 <- lrtest(glmpoissonirr1, glmpoissonirr2)
+      pois_vs_pois1 <- lrtest(glmpoissonirr0, glmpoissonirr1)
       
       # LRT p < 0.05: Year_recent interaction improves fit — use the richer model
       if (pois_vs_pois1$`Pr(>Chisq)`[2] < 0.05) {
-        glmpoissonirr <- glmpoissonirr2
-      } else {
         glmpoissonirr <- glmpoissonirr1
+      } else {
+        glmpoissonirr <- glmpoissonirr0
       }
       
       
       ## Fit negative binomial ----
       
-      nb1 <- glm.nb(Number_resistants~Year_simple + offset(log(Sample_size )), data = dataset_analysis )
-      nb2 <- glm.nb(Number_resistants~Year_simple*Year_recent + offset(log(Sample_size )), data = dataset_analysis )
+      nb1 <- glm.nb(Number_resistants~Year_simple*Year_recent + offset(log(Sample_size )), data = dataset_analysis )
       
       capture.output(print("Check if last 5 years significant in nb"),file = output_file_name)
-      capture.output(print(summary(nb2)),file = output_file_name)
-      nb1_vs_nb2 <- lrtest(nb1, nb2)
+      capture.output(print(summary(nb1)),file = output_file_name)
+      nb1_vs_nb2 <- lrtest(nb0, nb1)
       
       # LRT p < 0.05: Year_recent interaction improves fit — use the richer model
       if (nb1_vs_nb2$`Pr(>Chisq)`[2] < 0.05) {
-        nb <- nb2
-      } else {
         nb <- nb1
+      } else {
+        nb <- nb0
       }
       
     } 

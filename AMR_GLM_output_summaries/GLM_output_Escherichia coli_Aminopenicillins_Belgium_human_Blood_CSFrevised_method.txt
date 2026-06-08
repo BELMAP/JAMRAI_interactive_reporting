@@ -34,8 +34,10 @@ Call:  glm(formula = Number_resistants ~ Year_simple * Year_recent +
     data = dataset_analysis)
 
 Coefficients:
-             (Intercept)               Year_simple              Year_recentY  Year_simple:Year_recentY  
-               -0.652513                  0.006492                 -0.015521                 -0.002095  
+             (Intercept)               Year_simple              Year_recentY  
+               -0.652513                  0.006492                 -0.015521  
+Year_simple:Year_recentY  
+               -0.002095  
 
 Degrees of Freedom: 23 Total (i.e. Null);  20 Residual
 Null Deviance:	    60.23 
