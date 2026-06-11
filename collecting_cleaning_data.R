@@ -2,6 +2,11 @@
 
 #script to process data if downloaded following instructions document
 
+#here made for Belgium example, to run for your country you need to:
+# lines 43-44 adapt "Belgium" and "BE"
+# lines 129 adapt "Belgium"
+
+
 #1. load libraries ---------------
 library(tidyverse)
 library(here)
@@ -133,7 +138,7 @@ load_amr_2025 <- function(path) {
     select(Host, Antimicrobial, Year, Percent_resistant, Sample_size,Region)
 }
 
-# ── Load all three BE dashboard files and combine ────────────────────────────
+# ── Load all  BE and EU dashboard files and combine ────────────────────────────
 load_all_amr_2025 <- function(data_dir = here::here("Data")) {
   list.files(data_dir, pattern = "^AMR - 2025.*\\.csv$", full.names = TRUE) %>%
     map(load_amr_2025) %>%

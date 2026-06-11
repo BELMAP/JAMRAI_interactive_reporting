@@ -7,6 +7,10 @@
 #    http://shiny.rstudio.com/
 #
 
+##### Adapt for your country --> change "Belgium" in lines 385/386, 479, 511, 532, 555, 579, 602, 
+#Lines 150-240 == text  adapt for your methodology/sampling etc.
+#Update the contributors logos in www file (“contributor_report_details.csv” in Data   who provides the data/link to their reports
+                                            
 
 # # install necessary packages
 # install.packages( pkgs = c( "devtools") )
