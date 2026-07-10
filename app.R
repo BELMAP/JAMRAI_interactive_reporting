@@ -33,5 +33,4 @@ source("src/server.R")
 #src/ui.R --> change selection buttons "Belgium" e.g. lines 121,122,
 
 
-# Run the application
 shinyApp(ui = ui, server = server)
