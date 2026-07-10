@@ -16,6 +16,7 @@
 #
 # Run with the "Run App" button, or shiny::runApp().
 
+
 # Sourced in dependency order (setup → data/text → module → ui → server).
 source("src/setup.R")
 source("src/data.R")
@@ -23,6 +24,14 @@ source("src/text_content.R")
 source("src/amr_module.R")
 source("src/ui.R")
 source("src/server.R")
+
+##### Adapt for your country --> change "Belgium" and methodology in:
+
+#Update the contributors logos in www file (“contributor_report_details.csv” in Data   who provides the data/link to their reports
+#src/text_content.R ---> change text relating to Belgium/Belgian data collection etc.
+#src/server.R --> change filters for Belgium e.g. line 44,65,88,112,135 and abbreviation table
+#src/ui.R --> change selection buttons "Belgium" e.g. lines 121,122,
+
 
 # Run the application
 shinyApp(ui = ui, server = server)
