@@ -107,7 +107,7 @@ amcChartServer <- function(id, Intersectoral_AMC) {
       hidden_regs <- names(hidden_list)[vapply(hidden_list, isTRUE, logical(1))]
       r2d3::r2d3(
         data = d,
-        script = "www/amc_d3_1.js",   # read server-side by r2d3 (filesystem path, relative to app dir)
+        script = "www/amc_d3.js",   # read server-side by r2d3 (filesystem path, relative to app dir)
         d3_version = "5",
         options = list(
           colors = as.list(cols),
