@@ -12,6 +12,7 @@ sidebar <- dashboardSidebar(
               menuItem("Welcome", tabName = "Welcome", icon = icon("door-open", lib = "font-awesome", tabName = "Welcome")),
               menuItem("Methodology", tabName = "Methodology", icon = icon("calculator", lib = "font-awesome", tabName = "Methodology")),
               menuItem("AMR", icon = icon("bacteria", lib = "font-awesome"), tabName = "AMR"),
+              menuItem("AMC", icon = icon("pills", lib = "font-awesome"), tabName = "AMC"),
               menuItem("Contributors", icon = icon("server", lib = "font-awesome"), tabName = "contributors")
   )
 )
@@ -85,6 +86,14 @@ body <- dashboardBody(
             fluidPage(
               div(id = "amr_chart_block_chart1", class = "amr-chart-block",
                   amrChartUI("chart1"))
+            )),
+    
+    
+    # AMC Tab layout -----------------------------------------------
+    tabItem(tabName = "AMC",
+            fluidPage(
+              div(id = "amc_chart_block_chart2", class = "amc-chart-block",
+                  amcChartUI("chart2"))
             )),
     
     

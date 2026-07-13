@@ -58,13 +58,14 @@ amrChartUI <- function(id) {
                     max = 2024, value = c(2000, 2024), sep = "", width = "100%")),
 
     htmlOutput(ns("AMR_fig_text")),
-    htmlOutput(ns("AMR_text")),
+
 
     fluidRow(
       box(width = 12, collapsible = TRUE,
           title = NULL,
           d3Output(ns("amr_d3"), height = "820px"))
-    )
+    ),
+    htmlOutput(ns("AMR_text"))
   )
 }
 

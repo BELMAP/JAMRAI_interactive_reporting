@@ -18,6 +18,9 @@ server <- function(input, output, session) {
   # (src/amr_module.R): its own filters, own reactive filtering, own D3 output.
   amrChartServer("chart1", comparative_AMR_data)
 
+  # 6A.2 AMC chart — a self-contained amcChartServer/amcChartUI instanceamc
+  amcChartServer("chart2", Intersectoral_AMC)
+
 
   # 6.A 3 define reactive value contributors ----------------------------------
   

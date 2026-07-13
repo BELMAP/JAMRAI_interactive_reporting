@@ -88,3 +88,8 @@ The surveillance of MRSA follows a 3-year cycle and includes farm samples (poole
 AMR_text_outline <- "Here you can add Text describing the findings - this can reactive to what is selected"
 
 AMR_fig_text_outline <- "Here you can add Text describing the figure - this can reactive to what is selected"
+
+
+AMC_text_outline <- "Here you can add Text describing the findings - this can reactive to what is selected"
+
+AMC_fig_text_outline <- "Here you can add Text describing the figure - this can reactive to what is selected"

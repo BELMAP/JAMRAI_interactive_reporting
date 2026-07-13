@@ -223,4 +223,4 @@ JIACRA_historic_human <- rbind(JIACRA_2012,JIACRA_2014,JIACRA_2016,JIACRA_2018,J
 write_csv(JIACRA_historic_human, "Data/JIACRA_historic_human.csv")
 
 
-JIACRA_historic_human %>% filter(grepl("EU", Country))
+JIACRA_historic_human_eu <- JIACRA_historic_human %>% filter(grepl("EU", Country))
