@@ -111,14 +111,14 @@ Run script “run_trend_analyses.R”  – this runs generalised linear models o
 
 # 5. Make interactive report
 Run script app.R   
-Files/lines you need to adapt for your country :    
-#Update the contributors logos in www file (“contributor_report_details.csv” in Data   who provides the data/link to their reports 
-#src/text_content.R ---> change text relating to Belgium/Belgian data collection etc. 
-#src/server.R --> change abbreviation table terms relevant for Belgium 
-#src/data.R --> change Belgian filters/labels lines 66 and 81 
-#src/ui.R --> change selection buttons "Belgium" e.g. lines 121,122, 
-#src/amc_module --> change selection buttons "Belgium lines 17,18 
-#src/amr_module --> change selection buttons "Belgium lines 27,28, 108  
+Files/lines you need to adapt for your country :      
+#Update the contributors logos in www file (“contributor_report_details.csv” in Data   who provides the data/link to their reports   
+#src/text_content.R ---> change text relating to Belgium/Belgian data collection etc.   
+#src/server.R --> change abbreviation table terms relevant for Belgium   
+#src/data.R --> change Belgian filters/labels lines 66 and 81   
+#src/ui.R --> change selection buttons "Belgium" e.g. lines 121,122,   
+#src/amc_module --> change selection buttons "Belgium lines 17,18   
+#src/amr_module --> change selection buttons "Belgium lines 27,28, 108    
 - most of the formatting is described in the file “style2_2.css” in the www directory → adapt this to match your country/institute formatting as desired (e.g. fonts/colours). Logos etc. should also be placed in this “www” directory.  
 
 → click “Run App”    
