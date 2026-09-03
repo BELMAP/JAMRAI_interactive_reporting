@@ -1,0 +1,17 @@
+﻿Source: Annex D_ESBL_EUSR_AMR_2021-2022.pdf
+Page: 26
+ESBL only ESBL only
+
+-- Table 1 (auto-detected) --
+NP2(a),"ESBL and or
+AmpC",,ESBL(b),,"ESBL only
+CLA/CTX
+SYN(c)",,"ESBL only
+CLA/CAZ
+SYN(d)",,AmpC(e),,"ESBL +
+AmpC(f)"
+,n,%(h),n,%(h),n,%(h),n,%(h),n,%(h),n,%(h),n
+8,8,100,5,62.5,3,37.5,0,0,3,37.5,0,0,0
+11,11,100,10,90.9,2,18.2,0,0,1,9.1,0,0,0
+1,1,100,1,100,0,0,0,0,0,0,0,0,0
+361,357,98.9,312,86.4,83,23,2,0.6,40,11.1,5,1.4,2

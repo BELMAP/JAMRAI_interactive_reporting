@@ -1,0 +1,20 @@
+﻿Meats categories,NP2,ESBL and/or AmpC(a),,,ESBL(b),,,AmpC(e),,,ESBL + AmpC(f),,,CP(g)
+,,n,O%,P%,n,O%,P%,n,O%,P%,n,O%,P%,n,O%,P%
+"Broiler meat, retail, 2024
+N=7216, 32 RCs",2107,2072,98.34,27.2,1636,77.65,21.5,378,17.94,5,60,2.85,0.8,0,0,0
+"Broiler meat, BCP, 2024
+N=338, 14 RCs",191,188,98.43,49.8,155,81.15,41.06,30,15.71,7.95,7,3.66,1.85,0,0,0
+"Turkey meat, retail, 2024
+N=4774, 29 RCs",1127,1122,99.56,23.5,961,85.27,20.1,126,11.18,2.6,35,3.11,0.7,0,0,0
+"Turkey meat, BCP, 2024
+N=40, 3 RCs",24,24,100,60,22,91.67,55,2,8.33,5,0,0,0,0,0,0
+"Pig meat, retail, 2023
+N=7059, 30 RCs",358,358,100,5.1,263,73.46368715083798,3.7,84,23.5,1.2,11,3.072625698324022,0.2,0,0,0
+"Pig meat, BCP, 2023
+N=254, 9 RCs",12,12,100,3.94,7,58.33333333333334,2.3,5,41.7,1.64,0,0,0,0,0,0
+"Bovine meat, retail, 2023
+N=7112, 30 RCs",273,272,99.7,4,237,86.81318681318682,3.5,29,10.6,0.4,6,2.197802197802198,0.2,0,0,0
+"Bovine meat, BCP, 2023
+N=742, 14 RCs",3,3,100,0.44,2,66.66666666666666,0.3,1,33.3,0.15,0,0,0,0,0,0
+
+Information regarding the origin of the meat samples collected at BCPs can be found in the respective country datasets available on Zenodo

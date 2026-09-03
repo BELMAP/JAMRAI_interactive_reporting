@@ -1,0 +1,15 @@
+﻿Source: Annex_D_ESBL_EUSR_AMR_2020-2021.pdf
+Page: 40
+ESBL(b) AmpC(e) ESBL + AmpC(f) CPs(g)
+
+-- Table 1 (auto-detected) --
+,,ESBL and/or,,,,ESBL only,,ESBL only
+,,,,ESBL(b),,,,,,AmpC(e),,ESBL + AmpC(f),,CPs(g)
+Country,NP2,AmpC(a),,,,CLA/CTX SYN(c),,CLA/CAZ SYN(d)
+
+,,n,%(h),n,%(h),n,%(h),n,n,%(h),n,%(h),n,%(h),n
+Austria,11,11,100,10,90.9,3,27.3,0,0,1,9.1,0,0,0,0
+Slovenia,8,8,100,5,62.5,3,37.5,0,0,3,37.5,0,0,0,0
+Spain,11,11,100,10,90.9,2,18.2,0,0,1,9.1,0,0,0,0
+Sweden,1,1,100,1,100,0,0,0,0,0,0,0,0,0,0
+Total (22 MSs),302,294,97.4,263,87.1,82,27.2,2,0.7,31,10.3,5,1.7,2,0.7

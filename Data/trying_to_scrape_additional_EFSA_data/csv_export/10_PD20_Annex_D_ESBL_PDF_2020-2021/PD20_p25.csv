@@ -1,0 +1,21 @@
+﻿Source: Annex_D_ESBL_EUSR_AMR_2020-2021.pdf
+Page: 25
+"Table 10. Presumptive ESBL- and AmpC-producing Salmonella spp. isolates from meat from pigs, fattening pigs and calves under 1 year of age collected"
+
+-- Table 1 (auto-detected) --
+,,,ESBL and/or,,,,ESBL only,,ESBL only
+,,,,,ESBL(b),,,,,,AmpC(e),,ESBL + AmpC(f),,CPs(g)
+Country,NP1,NP2,AmpC(a),,,,CLA/CTX SYN(c),,CLA/CAZ SYN(d)
+
+,,,n,%(h),n,%(h),n,%(h),n,n,%(h),n,%(h),n,%(h),n
+Cattle (bovine animals) - calves (under 1 year)
+Spain,20,1,1,5,0,0,1,5,0,0,0,0,1,5,0,0
+Total (1 MSs),20,1,1,5,0,0,1,5,0,0,0,0,1,5,0,0
+Meat from pig - carcase
+Italy,91,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0
+Total (1 MSs),91,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0
+Pigs - fattening pigs
+Hungary,80,4,3,3.8,3,3.8,1,1.2,0,0,0,0,1,1.2,0,0
+Luxembourg,37,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+Romania,104,6,5,4.8,5,4.8,0,0,0,0,0,0,1,1,0,0
+Total (3 MSs),221,14,8,3.6,8,3.6,1,0.5,0,0,0,0,2,0.9,0,0

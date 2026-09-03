@@ -1,0 +1,55 @@
+﻿Go To Sheet,Sheet Name,Table Legend,Link
+1,Table of Contents,,Go To Sheet
+2,Salmonella poultry,"Presumptive ESBL-/AmpC-/CP-producing Salmonella spp. isolates from broilers, fattening turkeys, laying hens and imported broiler meat (sampled at border control posts) collected within the routine monitoring and subjected to supplementary testing (Panel 2) in 2022 ",Go To Sheet
+3,Indicator E. coli broiler,Presumptive ESBL-/AmpC-/CP-producing indicator Escherichia coli isolates from broiler flocks collected within the routine monitoring and subjected to supplementary testing (Panel 2) in 2022 ,Go To Sheet
+4,Indicator E. coli fattening turkey,Presumptive ESBL-/AmpC/CP-producing indicator Escherichia coli isolates from fattening turkeys collected within the routine monitoring and subjected to supplementary testing (Panel 2) in 2022 ,Go To Sheet
+5,Prevalence broiler meat,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from broiler meat collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022 ,Go To Sheet
+6,Occurrence broiler meat,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from broiler meat collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022 ,Go To Sheet
+7,Prevalence broilers,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from broilers collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022 ,Go To Sheet
+8,Occurrence broilers,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from broilers collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022 ,Go To Sheet
+9,Prevalence turkey meat,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates in turkey meat collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022 ,Go To Sheet
+10,Occurrence turkey meat,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates in turkey meat collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022 ,Go To Sheet
+11,Prevalence fattening turkeys,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from fattening turkeys collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022,Go To Sheet
+12,Occurrence fattening turkeys,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from fattening turkeys collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2022,Go To Sheet
+13,Salmonella fattening pigs and cattle,Presumptive ESBL-/AmpC-/CP-producing Salmonella spp. isolates from fattening pigs and cattle under 1 year collected within the routine monitoring and subjected to supplementary testing (Panel 2) in 2023 ,Go To Sheet
+14,Indicator E. coli fattening pigs,Presumptive ESBL-/AmpC-/CP-producing indicator Escherichia coli isolates from fattening pigs collected within the routine monitoring and subjected to supplementary testing (Panel 2) in 2023 ,Go To Sheet
+15,Indicator E. coli cattle,Presumptive ESBL-/AmpC-/CP-producing indicator Escherichia coli isolates from cattle under 1 year collected within the routine monitoring and subjected to supplementary testing (Panel 2) in 2023 ,Go To Sheet
+16,Prevalence pig meat,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates in pig meat at retail collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023 ,Go To Sheet
+17,Occurrence pig meat,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates in pig meat at retail collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023 ,Go To Sheet
+18,Prevalence fattening pigs,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from fattening pigs collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023,Go To Sheet
+19,Occurrence fattening pigs,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from fattening pigs collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023 ,Go To Sheet
+20,Prevalence cattle meat,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates in cattle meat at retail collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023 ,Go To Sheet
+21,Occurrence cattle meat,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates in cattle meat at retail collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023,Go To Sheet
+22,Prevalence cattle <1 year,Prevalence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from cattle under 1 year collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023 ,Go To Sheet
+23,Occurrence cattle <1 year,Occurrence of presumptive ESBL-/AmpC-/CP-producing Escherichia coli isolates from cattle under 1 year collected within the specific monitoring of ESBL-/AmpC-/CP-producers in 2023 ,Go To Sheet
+24,Samples investigated CP-producers,Number of samples investigated and number of presumptive carbapenemase-producing Escherichia coli in the specific monitoring of CP-producers in 2022-2023,Go To Sheet
+25,Occurrence retail meat and imported meat,"Occurrence and prevalence of ESBL-/AmpC-/CP-producing Escherichia coli in samples from pig meat, cattle meat, broiler meat and turkey meat sampled at retail and border control posts, EU MSs and non-MSs, 2022-2023",Go To Sheet
+
+,Abbreviations,Description
+,ESBL,extended-spectrum betalactamase; 
+,CAZ,ceftazidime
+,CI,Confidence interval
+,CLA,clavulanate
+,CP,carbapenemase
+,CTX,cefotaxime
+,MSs,Member States
+,n,number of isolates with the phenotype 
+,nCP,nCP: number of CP positive isolates
+,non-MSs,non-Member States
+,NP1,total number of isolates tested with panel 1
+,NP2,total number of isolates tested with Panel 2 or whole genome sequencing
+,NS,"number of samples collected at slaughterhouse (fattening pigs, cattle under one year, broilers, fattening turkeys) or retail (pig meat, cattle meat, broiler meat and turkey meat); "
+,O%,% of isolates from the total number of isolates tested with Panel 2
+,P%,% of isolates from the total number of smaples tested
+,SYN,synergy
+,%,percentage of isolates from the total number tested
+
+
+,Note,Description
+,(a),"According to EUCAST guidelines (EUCAST, 2019), only isolates showing MIC >1 mg/L for CTX and/or CAZ were considered (see Appendix B)"
+,(b),"All isoaltes showing clavulanate synergy with CTX or CAZ or both, suggesting ESBL phenotype, or reported presence of ESBL-encoding gene."
+,( c),"Isolates showing synergy with CTX only, suggesting presence of ESBL with cefotaximase activity."
+,(d),"Isolates showing synergy with CAZ only, suggesting presence of ESBL with ceftazidimase activity."
+,( e),"Isolates with cefoxitin resistance, suggesting AmpC phenotype, or reported presence of AmpC-encoding gene."
+,(f),"Isolates showing synergy with CTX or CAZ and cefoxitin resistance, suggesting ESBL- and AmpC enzymes in the same isolates, or both ESBL- and AmpC-encoding genes reported."
+,(g),Isolates with meropenem resistance or CP-encoding gene reported.
