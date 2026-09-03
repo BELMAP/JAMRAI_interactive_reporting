@@ -18,12 +18,14 @@
 # Run with the "Run App" button, or shiny::runApp().
 
 
-# Sourced in dependency order (setup → data/text → module → ui → server).
+# Sourced in dependency order (setup → data/text → helpers → modules → ui → server).
 source("src/setup.R")
 source("src/data.R")
 source("src/text_content.R")
+source("src/chart_helpers.R")   # shared palette + region-legend wiring (AMR/AMC/compare)
 source("src/amr_module.R")
 source("src/amc_module.R")
+source("src/compare_module.R")  # AMR × AMC quadrant scatter (reuses the two modules above)
 source("src/ui.R")
 source("src/server.R")
 
