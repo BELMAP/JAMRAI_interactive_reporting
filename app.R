@@ -31,8 +31,12 @@ source("src/server.R")
 
 #Update the contributors logos in www file (“contributor_report_details.csv” in Data   who provides the data/link to their reports
 #src/text_content.R ---> change text relating to Belgium/Belgian data collection etc.
-#src/server.R --> change filters for Belgium e.g. line 44,65,88,112,135 and abbreviation table
+#src/server.R --> change abbreviation table terms relevant for Belgium
+#src/data.R --> change Belgian filters/labels lines 66 and 81
 #src/ui.R --> change selection buttons "Belgium" e.g. lines 121,122,
+#src/amc_module --> change selection buttons "Belgium lines 17,18
+#src/amr_module --> change selection buttons "Belgium lines 27,28, 108
+
 
 
 shinyApp(ui = ui, server = server)
