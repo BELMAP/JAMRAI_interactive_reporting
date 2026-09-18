@@ -52,10 +52,9 @@ making_human_mgkg_data.R  ───┼─> Data/Human_mg_kg.csv                 
 
 | File | Notes |
 |---|---|
-| `Data/Consumption_data/demo_pjan__custom_21792359_linear.csv.gz` | Compressed Eurostat population extract; appears to be the raw source/backup for `demo_pjan_Eurostat_pop_BE.csv`. Not referenced by any script. |
-| `Data/Consumption_data/esvac_sales_food_producing_animals_2010_2022.csv` | ESVAC sales data 2010–2022. Not referenced by any script — likely superseded by `esuavet_food_animal_sales_2023_2024.csv` or reserved for a future extension of the historic series. |
+| `Data/Consumption_data/demo_pjan__custom_21792359_linear.csv.gz` | Compressed Eurostat population extract;  the raw source/backup for `demo_pjan_Eurostat_pop_BE.csv`. Not referenced by any script. |
+| `Data/Consumption_data/esvac_sales_food_producing_animals_2010_2022.csv` | ESVAC sales data 2010–2022. Not referenced by any script — superseded by `esuavet_food_animal_sales_2023_2024.csv` but reserved for a future extension of the historic series. |
 | `Data/Consumption_data/ESVAC_all_years_pcu.csv` | ESVAC population correction unit (PCU) reference data. Not referenced by any script. |
-| `Data/AMC/*` (`AMC_export_table_BE.CSV`, `Trend of the ATC group J01, A (2).XLSX`, `demo_pjan_Eurostat_pop_BE.csv`, `demo_pjan__custom_21792359_linear.csv.gz`) | Duplicate/legacy copies of files also present under `Data/Consumption_data/`. Not referenced by any script from this location. |
 | `www/AMR - 2025 Interactive dashboard_BE_MRSA.csv` | Same format as the other "AMR - 2025" dashboard exports, but for MRSA. `load_all_amr_2025()` only scans `Data/`, not `www/`, and there's no matching `EU_MRSA` file, so this file isn't currently picked up. |
 | `Data/trying_to_scrape_additional_EFSA_data/**` (PDFs, `.xlsm`/`.xlsx` annexes, and ~290 CSVs under `csv_export/`) | Working files from an EFSA "Annex C/D/E" PDF/Excel scraping experiment. `load_data.R` does define a loader (`process_csv` / `amr_data`) that reads from `here("..", "csv_export")` — but that resolves to a `csv_export` folder **one level above the project root**, not to this tracked `Data/trying_to_scrape_additional_EFSA_data/csv_export/` folder. As configured, `load_data.R` does not actually load these tracked files; likely a leftover path from when the script lived elsewhere, or the script expects a different local layout. |
 
