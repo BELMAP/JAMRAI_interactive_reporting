@@ -5,7 +5,7 @@
 
 #make active product total volume human
 
-Human_AMC_raw <- read_csv("Data/Consumption_data/AMC_export_table_BE.csv") %>%
+Human_AMC_raw <- read_csv("Data/Consumption_data/AMC_export_table_BE.CSV") %>%
   mutate(Country = "Belgium")
 
 names(Human_AMC_raw) <- c("Year", "ATC", "Antimicrobial_class", "Tonnes", "Country")
