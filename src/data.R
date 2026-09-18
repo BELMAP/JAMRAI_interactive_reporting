@@ -64,7 +64,7 @@ comparative_AMR_data <- left_join(comparative_AMR_data_raw,y_coords, by = c("Hos
   mutate(Host = "Human",
          mg_kg = Humans_mgkg,
          Region = if_else(grepl("Belgium", Country), "Belgium", "Europe"))%>%
-  select(-c(Humans_mgkg, Country))
+  dplyr::select(-c(Humans_mgkg, Country))
 
 
 Vet_AMC <-read_csv("AMC_vet_results.csv") %>%
@@ -79,7 +79,7 @@ Vet_AMC <-read_csv("AMC_vet_results.csv") %>%
   mutate(Host = "Animal",
          mg_kg = Animals_mgkg,
          Region = if_else(grepl("Belgium", Country), "Belgium", "Europe"))%>%
-  select(-c(Animals_mgkg,Country))
+  dplyr::select(-c(Animals_mgkg,Country))
 
 Intersectoral_AMC = rbind(Human_AMC, Vet_AMC)
 
