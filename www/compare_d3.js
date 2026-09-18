@@ -1,17 +1,19 @@
 // =====================================================================
 // compare_d3.js — combined AMR × AMC view (AMR/AMC tab). Two modes, chosen
 // in R via options.mode:
-//   - "bar"     : dual-axis grouped bars. AMR (solid, LEFT axis, %) + AMC
-//                 (hatched, RIGHT axis, mg/kg), grouped by year, one pair per
-//                 region. options.normalize rescales both series to % of their
-//                 own max on a single axis so their shapes are comparable.
+//   - "bar"     : dual-axis grouped bars, faceted one panel per Sector (Human /
+//                 Animal). AMR (solid, LEFT axis, %) + AMC (hatched, RIGHT
+//                 axis, mg/kg), grouped by year, one pair per region within
+//                 each facet. options.normalize rescales both series to % of
+//                 their own max on a single axis so their shapes are comparable.
 //   - "scatter" : Monnet plot — x = AMC (mg/kg), y = AMR (%), one point per
 //                 (year, region, sector). Axes auto-fit the data (do NOT start
 //                 at 0). Human = circle, Animal = triangle. Four action zones
 //                 split by the two medians.
 //
 // Shared primitives via window.JAMRAI (www/chart_common.js).
-// data (bar)     : [{ Year, Region, metric:"AMR"|"AMC", val }]
+// data (bar)     : [{ Year, Region, Sector:"Human"|"Animal", metric:"AMR"|"AMC", val }]
+//                  faceted into one small-multiple panel per Sector.
 // data (scatter) : [{ Year, Region, Sector:"Human"|"Animal", x, y }]
 // =====================================================================
 
@@ -27,7 +29,9 @@ if (mode === "scatter") { renderScatter(); }
 else { renderBars(); }
 
 // =====================================================================
-// Dual-axis grouped bars (+ optional normalisation)
+// Dual-axis grouped bars (+ optional normalisation), faceted one panel
+// per Sector (Human / Animal) — small multiples, up to 2 columns, same
+// pattern used for the Host facets in www/amr_d3.js.
 // =====================================================================
 function renderBars() {
   var normalize = !!(options && options.normalize);
@@ -45,9 +49,12 @@ function renderBars() {
 
   var regions = Array.from(new Set(data.map(function (d) { return d.Region; }))).sort();
   var years   = Array.from(new Set(data.map(function (d) { return d.Year; }))).sort(function (a, b) { return a - b; });
+  // Human before Animal when both are present, for a stable facet order
+  var sectors = Array.from(new Set(data.map(function (d) { return d.Sector; })))
+    .sort(function (a, b) { return (a === "Human" ? -1 : 1) - (b === "Human" ? -1 : 1); });
   function colorFor(r) { return J.colorFor(r, colors, regions); }
 
-  if (!data.length || !years.length) {
+  if (!data.length || !years.length || !sectors.length) {
     svg.append("text").attr("x", width / 2).attr("y", height / 2)
        .attr("text-anchor", "middle").attr("fill", "#7aa7b5").style("font-size", "14px")
        .text("No data for this selection");
@@ -61,11 +68,11 @@ function renderBars() {
   function tipHtml(d) {
     var unit = d.metric === "AMR" ? " %" : " mg/kg";
     var extra = normalize ? " (" + normVal(d).toFixed(0) + "% of max)" : "";
-    return "<span style='color:" + colorFor(d.Region) + ";font-weight:700'>" + d.Region + "</span> · " + d.Year +
+    return "<b>" + d.Sector + "</b><br><span style='color:" + colorFor(d.Region) + ";font-weight:700'>" + d.Region + "</span> · " + d.Year +
       "<br>" + d.metric + ": <b>" + d.val.toFixed(1) + unit + "</b>" + extra;
   }
 
-  // diagonal-hatch pattern per region for the AMC series
+  // diagonal-hatch pattern per region for the AMC series (shared across facets)
   var defs = svg.append("defs");
   regions.forEach(function (r, i) {
     var p = defs.append("pattern").attr("id", "cmp-hatch-" + i)
@@ -80,7 +87,7 @@ function renderBars() {
     return colorFor(d.Region);
   }
 
-  // ---- legend: shared region legend + AMR/AMC encoding note ----------
+  // ---- legend (shared across all facets): region legend + AMR/AMC note --
   var legendH = 34;
   var lg = svg.append("g").attr("transform", "translate(14,18)");
   var lx = J.drawRegionLegend(lg, {
@@ -92,11 +99,17 @@ function renderBars() {
     .text(normalize ? "solid = AMR   hatched = AMC   (both as % of max)"
                     : "■ solid = AMR (%, left)   ▨ hatched = AMC (mg/kg, right)");
 
-  var pad = { t: legendH + 6, r: normalize ? 24 : 62, b: 52, l: 60 };
-  var iw = width - pad.l - pad.r;
-  var ih = height - pad.t - pad.b;
+  // ---- facet grid: one panel per sector, up to 2 columns ----------------
+  var nCols = Math.min(sectors.length, 2);
+  var nRows = Math.ceil(sectors.length / nCols);
+  var cellW = width / nCols;
+  var cellH = (height - legendH) / nRows;
 
-  // scales: normalised -> single 0-100 axis; otherwise dual axes
+  var pad = { t: 28, r: normalize ? 20 : 50, b: 46, l: 48 };
+  var iw = cellW - pad.l - pad.r;
+  var ih = cellH - pad.t - pad.b;
+
+  // scales shared by every facet: normalised -> single 0-100 axis; otherwise dual axes
   var yL = d3.scaleLinear().domain([0, normalize ? 100 : amrMax]).range([pad.t + ih, pad.t]);
   var yR = d3.scaleLinear().domain([0, amcMax]).range([pad.t + ih, pad.t]);
   function yPos(d) { return normalize ? yL(normVal(d)) : (d.metric === "AMR" ? yL : yR)(d.val); }
@@ -105,58 +118,76 @@ function renderBars() {
   var groups = [];
   regions.forEach(function (r) { groups.push(r + "|AMR"); groups.push(r + "|AMC"); });
   var xG = d3.scaleBand().domain(groups).range([0, x.bandwidth()]).padding(0.08);
+  var step = years.length > 10 ? 2 : 1;
 
-  // left axis
-  svg.append("g").attr("transform", "translate(" + pad.l + ",0)")
-    .call(d3.axisLeft(yL).ticks(5).tickSize(-iw))
-    .call(function (s) { s.select(".domain").remove(); })
-    .call(function (s) { s.selectAll("line").attr("stroke", "#E7EFF3"); })
-    .call(function (s) { s.selectAll("text").attr("fill", "#0C5468").style("font-size", "10px"); });
-  // right axis (only when not normalised)
-  if (!normalize) {
-    svg.append("g").attr("transform", "translate(" + (pad.l + iw) + ",0)")
-      .call(d3.axisRight(yR).ticks(5))
+  sectors.forEach(function (sec, i) {
+    var cx = (i % nCols) * cellW;
+    var cy = legendH + Math.floor(i / nCols) * cellH;
+    var g  = svg.append("g").attr("transform", "translate(" + cx + "," + cy + ")");
+    var fdata = data.filter(function (d) { return d.Sector === sec; });
+
+    // facet title
+    g.append("text").attr("x", pad.l + iw / 2).attr("y", pad.t - 12)
+      .attr("text-anchor", "middle").attr("fill", "#056B86")
+      .style("font-size", "12.5px").style("font-weight", "700").text(sec);
+
+    if (!fdata.length) {
+      g.append("text").attr("x", pad.l + iw / 2).attr("y", pad.t + ih / 2)
+        .attr("text-anchor", "middle").attr("fill", "#7aa7b5").style("font-size", "12px")
+        .text("No data for this sector");
+      return;
+    }
+
+    // left axis
+    g.append("g").attr("transform", "translate(" + pad.l + ",0)")
+      .call(d3.axisLeft(yL).ticks(4).tickSize(-iw))
+      .call(function (s) { s.select(".domain").remove(); })
+      .call(function (s) { s.selectAll("line").attr("stroke", "#E7EFF3"); })
+      .call(function (s) { s.selectAll("text").attr("fill", "#0C5468").style("font-size", "9.5px"); });
+    // right axis (only when not normalised)
+    if (!normalize) {
+      g.append("g").attr("transform", "translate(" + (pad.l + iw) + ",0)")
+        .call(d3.axisRight(yR).ticks(4))
+        .call(function (s) { s.select(".domain").attr("stroke", "#D6E4EA"); })
+        .call(function (s) { s.selectAll("line").attr("stroke", "#D6E4EA"); })
+        .call(function (s) { s.selectAll("text").attr("fill", "#0C5468").style("font-size", "9.5px"); });
+    }
+
+    // x axis (years, thinned if many)
+    g.append("g").attr("transform", "translate(0," + (pad.t + ih) + ")")
+      .call(d3.axisBottom(x).tickValues(years.filter(function (yy, idx) { return idx % step === 0; })))
       .call(function (s) { s.select(".domain").attr("stroke", "#D6E4EA"); })
       .call(function (s) { s.selectAll("line").attr("stroke", "#D6E4EA"); })
-      .call(function (s) { s.selectAll("text").attr("fill", "#0C5468").style("font-size", "10px"); });
-  }
+      .call(function (s) {
+        s.selectAll("text").attr("fill", "#0C5468").style("font-size", "8.5px")
+          .attr("transform", "rotate(-90)").attr("text-anchor", "end")
+          .attr("dx", "-0.5em").attr("dy", "-0.5em");
+      });
 
-  // x axis (years, thinned if many)
-  var step = years.length > 14 ? 2 : 1;
-  svg.append("g").attr("transform", "translate(0," + (pad.t + ih) + ")")
-    .call(d3.axisBottom(x).tickValues(years.filter(function (yy, idx) { return idx % step === 0; })))
-    .call(function (s) { s.select(".domain").attr("stroke", "#D6E4EA"); })
-    .call(function (s) { s.selectAll("line").attr("stroke", "#D6E4EA"); })
-    .call(function (s) {
-      s.selectAll("text").attr("fill", "#0C5468").style("font-size", "9px")
-        .attr("transform", "rotate(-90)").attr("text-anchor", "end")
-        .attr("dx", "-0.5em").attr("dy", "-0.5em");
-    });
+    // axis captions (compact, per facet)
+    g.append("text").attr("x", pad.l).attr("y", pad.t - 12)
+      .attr("fill", "#0C5468").style("font-size", "9px").style("font-weight", "700")
+      .text(normalize ? "% of max" : "AMR %");
+    if (!normalize) {
+      g.append("text").attr("x", pad.l + iw).attr("y", pad.t - 12)
+        .attr("text-anchor", "end")
+        .attr("fill", "#0C5468").style("font-size", "9px").style("font-weight", "700")
+        .text("AMC mg/kg");
+    }
 
-  // axis captions
-  svg.append("text").attr("transform", "rotate(-90)")
-    .attr("x", -(pad.t + ih / 2)).attr("y", 14).attr("text-anchor", "middle")
-    .attr("fill", "#0C5468").style("font-size", "11px").style("font-weight", "700")
-    .text(normalize ? "% of series max" : "AMR — % Resistance");
-  if (!normalize) {
-    svg.append("text").attr("transform", "rotate(-90)")
-      .attr("x", -(pad.t + ih / 2)).attr("y", width - 12).attr("text-anchor", "middle")
-      .attr("fill", "#0C5468").style("font-size", "11px").style("font-weight", "700")
-      .text("AMC — mg/kg Consumption");
-  }
-
-  svg.selectAll("rect.cbar").data(data.filter(function (d) { return !isHidden(d.Region); }))
-    .enter().append("rect").attr("class", "cbar")
-    .attr("x", function (d) { return x(d.Year) + xG(d.Region + "|" + d.metric); })
-    .attr("width", xG.bandwidth())
-    .attr("y", function (d) { return yPos(d); })
-    .attr("height", function (d) { return (pad.t + ih) - yPos(d); })
-    .attr("fill", fillFor)
-    .attr("stroke", function (d) { return colorFor(d.Region); })
-    .attr("stroke-width", function (d) { return d.metric === "AMC" ? 0.8 : 0; })
-    .attr("rx", 1.5).style("cursor", "pointer")
-    .on("mousemove", function (d) { d3.select(this).attr("opacity", 0.82); J.showTip(d3.event, tipHtml(d)); })
-    .on("mouseleave", function () { d3.select(this).attr("opacity", 1); J.hideTip(); });
+    g.selectAll("rect.cbar").data(fdata.filter(function (d) { return !isHidden(d.Region); }))
+      .enter().append("rect").attr("class", "cbar")
+      .attr("x", function (d) { return x(d.Year) + xG(d.Region + "|" + d.metric); })
+      .attr("width", xG.bandwidth())
+      .attr("y", function (d) { return yPos(d); })
+      .attr("height", function (d) { return (pad.t + ih) - yPos(d); })
+      .attr("fill", fillFor)
+      .attr("stroke", function (d) { return colorFor(d.Region); })
+      .attr("stroke-width", function (d) { return d.metric === "AMC" ? 0.8 : 0; })
+      .attr("rx", 1.5).style("cursor", "pointer")
+      .on("mousemove", function (d) { d3.select(this).attr("opacity", 0.82); J.showTip(d3.event, tipHtml(d)); })
+      .on("mouseleave", function () { d3.select(this).attr("opacity", 1); J.hideTip(); });
+  });
 }
 
 // =====================================================================

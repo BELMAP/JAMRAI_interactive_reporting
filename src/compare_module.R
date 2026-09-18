@@ -106,11 +106,12 @@ compareChartServer <- function(id, comparative_AMR_data, Intersectoral_AMC, acti
         filter(!is.na(val), !is.na(Year), Year >= min(yr_in()), Year <= max(yr_in()))
     })
 
-    # bar view: one value per Year x Region (aggregated over sector)
+    # bar view: one value per Year x Region x Sector (faceted by sector in the
+    # D3 chart below, rather than averaged across Human/Animal)
     combined <- reactive({
-      amr_bar <- amr_raw() %>% group_by(Year, Region) %>%
+      amr_bar <- amr_raw() %>% group_by(Year, Region, Sector) %>%
         summarise(val = mean(val, na.rm = TRUE), .groups = "drop") %>% mutate(metric = "AMR")
-      amc_bar <- amc_raw() %>% group_by(Year, Region) %>%
+      amc_bar <- amc_raw() %>% group_by(Year, Region, Sector) %>%
         summarise(val = mean(val, na.rm = TRUE), .groups = "drop") %>% mutate(metric = "AMC")
       bind_rows(amr_bar, amc_bar)
     })
@@ -146,7 +147,7 @@ compareChartServer <- function(id, comparative_AMR_data, Intersectoral_AMC, acti
       } else {
         paste0("<p style='color:#0C5468;margin:2px 0 10px'>",
                "AMR (resistance, %) and AMC (consumption, mg/kg) on a shared basis ",
-               "(region, years). Solid bars = <b>AMR</b> (left axis) · ",
+               "(region, years), faceted by <b>sector</b> (Human / Animal). Solid bars = <b>AMR</b> (left axis) · ",
                "hatched bars = <b>AMC</b> (right axis). ",
                "Toggle <i>Normalise</i> to compare their shapes on a single 0–100 % axis.",
                "</p>")
@@ -182,7 +183,7 @@ compareChartServer <- function(id, comparative_AMR_data, Intersectoral_AMC, acti
         amr_pr <- suppressWarnings(as.numeric(amr_raw()$val))
         amc_pr <- suppressWarnings(as.numeric(amc_raw()$val))
         r2d3::r2d3(
-          data = d[, c("Year", "Region", "metric", "val")],
+          data = d[, c("Year", "Region", "Sector", "metric", "val")],
           script = "www/compare_d3.js",
           d3_version = "5",
           options = list(
