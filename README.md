@@ -124,3 +124,61 @@ Files/lines you need to adapt for your country :
 → click “Run App”    
 
  - this is completely adaptable and meant as a starting point for discussions - please work on it within your own branch on github and change for your country, or suggest overall changes (you can suggest to merge these with the master branch) 
+
+# Adapting for your country
+
+There are currently references to "Belgium" that need to be adapted for your country, as outlined below:
+
+  app.R (comments only — a checklist for adapting to another country)
+  - L32–40: comment block listing where to change "Belgium"/BE for a different country (points at src/text_content.R, src/server.R, src/ui.R
+  lines 121–122, src/amc_module.R lines 17–18, src/amr_module.R lines 27–28, 108). ⚠️ Stale: src/ui.R no longer contains "Belgium" anywhere
+  — the actual UI choices now live in the module files below.
+
+  collecting_cleaning_data.R
+  - L5–7: header comment — "here made for Belgium example... adapt lines 43-44 'Belgium' and 'BE', line 129 'Belgium'"
+  - L41, 44: # make Belgium dataframe / filter(grepl("Belgium",Region), ...) — selects Belgium rows out of ECDC data
+  - L82, 129, 141, 152: _BE_ in the "AMR - 2025 Interactive dashboard_BE_*.csv" doc-comment; Region =
+  if_else(grepl("EU",region),"Europe","Belgium") — labels non-EU dashboard files as Belgium
+
+  load_data.R
+  - L108, 164: doc comments referencing the _BE_*.csv filename pattern
+  - L125: str_extract("(?<=_BE_).+(?=\\.csv$)") — pulls the animal name out of ..._BE_<animal>.csv filenames
+
+  making_human_mgkg_data.R
+  - L8: read_csv("Data/Consumption_data/AMC_export_table_BE.CSV") — file path
+  - L9: mutate(Country = "Belgium") — tags the human AMC data as Belgium
+  - L22: read_csv("Data/Consumption_data/demo_pjan_Eurostat_pop_BE.csv") — file path
+  - L77, 114, 151, 188: "Belgium" as a row value inside the hardcoded JIACRA tables (tibble::tribble(...))
+
+  making_animal_mgkg_data.R
+  - L15, 52, 89, 126: "Belgium" row values in the hardcoded JIACRA tables (same tables duplicated from the human script)
+
+  run_trend_analyses.R
+  - L74: comment giving an example category string containing Belgium
+  - L437: filter(grepl("Belgium",Country)) — subsets vet AMC to Belgium
+  - L443, 461–481: # for Belgium section header + variable names PcorBelgium, KcorBelgium, ScorBelgium (and _vet versions, L534–555) — just
+  naming, not logic
+  - L575, 580: AMC_vet_result_Belgium — Belgium-only veterinary AMC result, combined with EU data into AMC_vet_results
+
+  src/data.R
+  - L66, 81: Region = if_else(grepl("Belgium", Country), "Belgium", "Europe") (once for human AMC, once for vet AMC) — the actual
+  Belgium/Europe split used by the app
+
+  src/amc_module.R
+  - L20–21: choices = c("Belgium", "Europe"), selected = c("Belgium", "Europe") — AMC tab region selector
+
+  src/amr_module.R
+  - L33–34: choices = c("Belgium", "Europe"), selected = c("Belgium", "Europe") — AMR tab region selector
+  - L90: mutate(Sample_size = if_else(grepl("Belgium", Region), ...)) — Belgium-specific sample-size display logic
+
+  src/compare_module.R
+  - L24–25: choices = c("Belgium", "Europe"), selected = c("Belgium", "Europe") — compare tab region selector
+
+  src/server.R
+  - L118: abbreviation table entry "EARS-BE", "European Antimicrobial Resistance Surveillance Belgium"
+  - L188: contributor table entry "NSIH-AMR/EARS-BE (Sciensano)", "Katrien Latour, ..."
+
+  src/text_content.R (editorial HTML text — mentions Belgium throughout, not code logic)
+  - L4, 10, 12, 15: welcome text
+  - L54, 72, 74: human-data-collection methodology text (incl. EARS-BE surveillance link)
+  - L81: food-producing-animal methodology text
